@@ -1,0 +1,297 @@
+@charset "utf-8";
+
+/* ==== icon ==== */
+[class^="ic24-"] {display: inline-block; width: 24px; height:24px; vertical-align: middle; background-size: contain; background-position: center;}
+.ic24-id {background-image: url(../images/ic24_id.svg);}
+.ic24-pw {background-image: url(../images/ic24_pw.svg);}
+.ic24-msg {background-image: url(../images/ic24_msg.svg);}
+.ic24-out {background-image: url(../images/ic24_out.svg);}
+.ic24-search {background-image: url(../images/ic24_search.svg);}
+.ic24-smile {background-image: url(../images/ic24_smile.svg);}
+.ic24-pie {background-image: url(../images/ic24_pie.svg);}
+.ic24-file {background-image: url(../images/ic24_file.svg);}
+.ic24-down {background-image: url(../images/ic24_down.svg);}
+
+[class^="ic14-"] {display: inline-block; width: 14px; height: 14px; vertical-align: middle; background-size: contain; background-position: center;}
+.ic14-date {background-image: url(../images/ic14_date.svg);}
+.ic14-reset {background-image: url(../images/ic14_date.svg);}
+
+[class^="ic-worth-"] {display: inline-block; width: 100px; height: 100px; vertical-align: middle; border-radius: 100%;}
+.ic-worth-1 {background: #FFF0F0 url(../images/ic50_worth_1.svg) no-repeat center;} /* 가족관계 */
+.ic-worth-2 {background: #FFF4ED url(../images/ic50_worth_2.svg) no-repeat center;} /* 부부/연인관계 */
+.ic-worth-3 {background: #FFFBEB url(../images/ic50_worth_3.svg) no-repeat center;} /* 친구/지인관계 */
+.ic-worth-4 {background: #ebf6f8 url(../images/ic50_worth_4.svg) no-repeat center;} /* 자기개발/성장 */
+.ic-worth-5 {background: #f5f0ff url(../images/ic50_worth_5.svg) no-repeat center;} /* 영성/종교 */
+.ic-worth-6 {background: #effbef url(../images/ic50_worth_6.svg) no-repeat center;} /* 여가/취미 */
+.ic-worth-7 {background: #f0f5ff url(../images/ic50_worth_7.svg) no-repeat center;} /* 일/직업/교육 */
+.ic-worth-8 {background: #fceafa  url(../images/ic50_worth_8.svg) no-repeat center;} /* 건강 */
+
+[class^="ic55-"] {display: inline-block; width: 55px; height: 50px; vertical-align: middle; background-size: 55px 50px; background-position: center;}
+.ic55-file-1 {background-image: url(../images/ic55_file_1.svg);}
+.ic55-file-2 {background-image: url(../images/ic55_file_2.svg);}
+
+/* ==== badge ==== */
+.badge {display: inline-block; width: 53px; height: 19px; line-height: 19px; border-radius: 8px; color:#fff; font-size:10px; text-align: center;}
+.badge.hold {background-color: #FF5A5A;}
+.badge.okay {background-color: #67B17C;}
+.badge.stop {background-color: #C5C9C6;}
+
+/* ==== layout ==== */
+body {background-color: #F2F4F8;}
+.wrap {display: flex; justify-content: space-between; width: 1600px; margin:0 auto; padding:0 66px}
+
+.header {width: 254px;}
+.header .logo {padding:40px 0;}
+.header .logo > a {display: block; width: 237px; height: 48px; background: url(../images/logo.png) no-repeat center / contain;}
+
+.login-info {height:180px; padding:32px 24px 90px; border-radius: 16px; background-color: #2B5437;}
+.login-user {margin-bottom:16px; font-size: 18px; color: #fff; text-align: center;}
+.login-user > strong {color:#F0C86F}
+
+.my-menu {display: flex; align-items: center; justify-content: space-between;}
+.my-menu > a {position: relative; display: block; height: 24px; color: #fff; line-height: 1.4;}
+.my-menu > a > i {margin-right:8px; vertical-align: -6px;}
+.my-menu .bar {display: block; width: 2px; height: 16px; background-color: #fff;}
+.msg-count {position: absolute; top:0; left:13px; display: block; min-width: 12px; height: 12px; padding:0 2px; border-radius: 12px; font-size: 8px; text-align: center; line-height: 12px; background-color: #FF5A5A;}
+
+.menu-list {height: 523px; margin-top:-66px; padding:24px 16px; border-radius: 16px; background-color: #fff;}
+.menu-list > ul > li > a {position: relative; display: block; height: 56px; padding:0 8px; border-bottom: 1px solid #F2F4F8; line-height: 56px; font-size: 18px; font-weight: 700;}
+.menu-list > ul > li > a > i {vertical-align: -6px;}
+.menu-list > ul > li > a > i.ic24-down {position: absolute; right:8px; top:16px}
+.menu-list > ul > li > ul {background-color: #F2F4F8;}
+.menu-list > ul > li > ul > li > a {display: block; height: 44px; padding: 0 32px; line-height: 44px; font-size: 16px; font-weight: 500;}
+
+.menu-list > ul > li.on > a,
+.menu-list > ul > li.on > ul > li.on a {color: #FF5A5A;}
+.menu-list > ul > li.on .ic24-smile {background-image: url(../images/ic24_smile_red.svg);}
+.menu-list > ul > li.on .ic24-pie {background-image: url(../images/ic24_pie_red.svg);}
+.menu-list > ul > li.on .ic24-file {background-image: url(../images/ic24_file_red.svg);}
+
+.container {width: 1198px;}
+
+.container-head {position: relative; padding:40px 0;}
+.global-search {position: absolute; right: 0; display: flex; align-items: center; gap: 8px; width: 706px; padding:0 32px; border-radius: 24px; background-color: #fff;}
+.global-search > input {width: 100%; height:48px; border: 0;}
+.global-search > input:focus {outline: 0;}
+
+.container-body {display: flex; align-items: flex-start; gap:16px; width: 100%;}
+
+.container-foot {padding:32px 0;}
+.footer *,
+.container-foot * {color:#ACB8C2; font-size: 12px; line-height: 1.4; text-align: center;}
+
+/* ==== title ==== */
+.title1 {overflow: hidden; max-width: 484px; font-size: 40px; font-weight: 700; line-height: 48px; white-space: nowrap;}
+.title2 {margin-bottom:16px; font-size: 24px; font-weight: 700; text-align: center;}
+.title3 {margin-bottom:16px; font-size: 16px; font-weight: 700; text-align: center;}
+
+/* ==== login ==== */
+.wrap-login {display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;}
+.login {display: flex; justify-content: space-between; width: 730px; margin-bottom:30px;}
+.login__logo {width: 360px; height: 346px; background: url(../images/login_logo2.png) no-repeat center / contain;}
+.login__box {width: 360px; height: 346px; padding:53px 40px 0;  border-radius: 24px; box-sizing: border-box; background-color: #fff;}
+.login__box h2 {margin-bottom:24px; font-size: 28px; font-weight: 700; text-align: center; line-height: 1.1;} 
+.login__box .noti {margin-top:8px; font-size: 10px; color: #656F77; text-align: center; line-height: 1.2;}
+.login__input {margin-bottom:26px;}
+.login__input [class^="inp-"] {display: flex; align-items: center; border-bottom:1px solid #CBD9E5;}
+.login__input [class^="inp-"] + [class^="inp-"] {margin-top:12px;}
+.login__input [class^="inp-"] input {width: 100%; height: 32px; border:0; padding: 0 8px;}
+.login__input [class^="inp-"] input:focus {outline: none;}
+.login__input .id-save {display: flex; align-items: center; justify-content: flex-end; gap: 6px; margin-top:8px;}
+.login__input .id-save label {font-size: 12px; color: #000;}
+
+@media screen and (height < 400px) { 
+  body {height: auto;}
+}
+
+.btn-login {display: block; width: 100%; height:40px; border-radius: 40px; font-size: 16px; font-weight: 500; color: #fff; background-color: #2B5437;}
+
+/* ==== form ==== */
+.input-date {position: relative; display: inline-block;}
+.input-date .input-date__input {position: absolute; top:0; left:0; width: 100%; height: 25px; border: 0; cursor: pointer; color: transparent; background-color: transparent;}
+.input-date .input-date__input:focus {outline: none;}
+
+/* ==== button ==== */
+.btn-right {text-align: right;}
+.btn-center {text-align: center;}
+.btn-more-area {margin-top:24px; text-align: center;}
+.btn-left + .table-col {margin-top:16px}
+
+/* 기본 버튼 */
+.btn-date,
+.btn-basic {display: inline-block; height:25px; padding:0 16px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
+.btn-date i,
+.btn-basic i {margin-right:9px; vertical-align: -3px;}
+
+/* 더보기 */
+.btn-more {display: inline-block; width: 127px; height: 24px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
+.btn-more::before {content: ''; display: inline-block; width: 9px; height: 12px; margin-right:4px; vertical-align: -2px; background: url(../images/ic_more.svg) no-repeat center / contain;}
+
+/* 링크 라인 버튼튼 */
+.btn_link {text-decoration: underline; font-weight: 700;}
+
+/* 탭 */
+.tab-basic > ul {display: flex; gap: 8px; justify-content: center; margin-bottom:14px;}
+.tab-basic > ul > li > a {display: block; min-width: 66px; height: 24px; padding:0 16px; border-radius: 12px; text-align: center; line-height: 24px; background-color: #E8EEF3;}
+.tab-basic > ul > li.on > a {color:#fff; background-color: #2B5437;}
+.tab-cont > div {display: none;}
+.tab-cont .tab-cont--open {display:block}
+
+/* ==== table ==== */
+.table-col table {width: 100%;}
+.table-col table thead th {height: 33px; padding:6px 0; font-size: 11px; color: #656F77; background-color: #F2F4F8;}
+.table-col table thead th:first-child {border-radius: 8px 0 0 8px;}
+.table-col table thead th:last-child {border-radius: 0 8px 8px 0;}
+.table-col table tbody td {height:33px; padding:4px 5px; text-align: center; line-height: 1.4;}
+.ellipsis {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+.table-scroll {overflow-x: scroll; overflow-y: hidden; width: 100%; padding-bottom:24px;}
+.table-scroll::-webkit-scrollbar {border-radius: 8px; background-color: #E9ECF1;}
+.table-scroll::-webkit-scrollbar-thumb {height:5px; border:4px solid #E9ECF1; border-radius: 8px; background-color: #FFFFFF;}
+
+/* 조건검색 */
+.table-search {display: flex; align-items: center; justify-content: center; gap:16px; margin-bottom:24px;}
+.search-box {position: relative; overflow: hidden; width: 360px; height: 30px; padding:0 73px 0 40px; border:1px solid #D2D7DB; border-radius: 30px; background: url(../images/ic24_search.svg) no-repeat 16px center / 16px 16px;}
+.search-box input {width: 100%; height: 30px; border:0;}
+.search-box input:focus {outline: 0;}
+.search-box__btn {position: absolute; right: 0; width: 73px; height: 30px; border-radius: 0 30px 30px 0; color:#fff; font-weight: 700; background-color: #2B5437;}
+
+.column-box {position: relative; display: flex; gap:64px;}
+.column-box::before {content: ''; display: block; position: absolute; top:0; bottom:0; left:50%; width: 1px; background-color: #C5C9C6;}
+
+/* ==== cont ==== */
+.contents {display: flex; flex-direction: column; gap: 16px; width: 100%;}
+.flex-row {display: flex; gap: 16px; width: 100%;}
+.module-box {position: relative; width: 100%; min-width: 220px; min-height: 266px; padding:32px 24px 24px; border-radius: 16px; background-color: #fff;}
+.cont-box {width: 100%;}
+.cont-box .title2 {margin-left:24px; text-align: left;}
+
+/* 왼쪽 서브 메뉴 */
+.user-info {width: 220px; height: 266px; margin-bottom:16px;}
+.user-img {overflow: hidden; width: 100px; height: 100px; margin:0 auto 16px; border-radius: 100%;}
+.user-name,
+.user-join {text-align: center; line-height: 1.4; font-weight: 500;}
+
+.lnb-menu {height: 354px;}
+.lnb-menu > ul > li > a {display: block; height: 40px; padding:0 16px; border-radius: 8px; line-height: 40px; font-size: 16px; font-weight: 500;}
+.lnb-menu > ul > li > a small {font-size: 11px;}
+.lnb-menu > ul > li.on > a {color:#fff; font-weight: 700; background-color: #458758;}
+
+.sub-lnb + .contents {width: 962px;}
+
+/* mode */
+.mode-1 {width: 220px; background-color: #D8F4CA80;}
+.mode-2 {width: 220px; background-color: #EBE7FC;}
+.mode-img {width: 100px; height: 100px; margin: 0 auto 16px; background-size: contain;}
+.mode-1 .mode-img {background-image: url(../images/mode_1.png);}
+.mode-2 .mode-img {background-image: url(../images/mode_2.png);}
+.mode-1 p,
+.mode-2 p {text-align: center;}
+
+/* 행동완료 비율 */
+.complete-rate {width: 220px; padding:32px 12px 24px;}
+.complete-rate p {font-weight: 500; text-align: center; font-size: 16px;}
+.complete-graph {position: relative; width: 110px; height: 110px; margin:0 auto 16px; background: url(../images/bg_doughnut.svg) no-repeat center / 100px 100px;}
+.complete-graph__value {position: absolute; left: 50%; top:55%; transform: translate(-50%, -50%); letter-spacing: -1px; font-size: 26px; font-weight: 700; color: #A694F5;}
+.complete-rate.green .complete-graph__value {color: #62E184;}
+
+/* 상세정보 */
+.detail-info {padding:32px;}
+
+/* list */
+.info-list dl {display: flex; align-items: center; padding:6px 0;}
+.info-list dt {width: 100px; min-width: 100px; font-weight: 700; line-height: 1.4; color: #191D21;}
+.info-list dd {color: #191D21; line-height: 1.4;}
+.info-list.col dl {display: block; padding:0;}
+.info-list.col dt {width: auto; margin-bottom:6px;}
+.info-list.col dl + dl {margin-top:16px;}
+
+/* graph */
+.graph-1 {width: 389px; min-width: 389px;}
+
+/* 가치선택 */
+[class*="worth-box-"] {width: 220px;}
+[class*="worth-box-"] p {text-align: center; font-size: 16px;}
+.worth-box-1 {background-color: #F7E4E4;}
+.worth-box-2 {background-color: #FAEEE6;}
+.worth-box-3 {background-color: #FAF6E6;}
+.worth-box-4 {background-color: #EBF8FA;}
+.worth-box-5 {background-color: #EDE6FA;}
+.worth-box-6 {background-color: #E6F5E7;}
+.worth-box-7 {background-color: #EBF2FD;}
+.worth-box-8 {background-color: #F7E6F6;}
+
+.worth-icon {width: 100px; height: 100px; margin:0 auto 16px; border-radius: 100%; background-color: #fff; background-position: center; background-repeat: no-repeat;} 
+.worth-box-1 .worth-icon {background-image: url(../images/ic50_worth_1.svg);}
+.worth-box-2 .worth-icon {background-image: url(../images/ic50_worth_2.svg);}
+.worth-box-3 .worth-icon {background-image: url(../images/ic50_worth_3.svg);}
+.worth-box-4 .worth-icon {background-image: url(../images/ic50_worth_4.svg);}
+.worth-box-5 .worth-icon {background-image: url(../images/ic50_worth_5.svg);}
+.worth-box-6 .worth-icon {background-image: url(../images/ic50_worth_6.svg);}
+.worth-box-7 .worth-icon {background-image: url(../images/ic50_worth_7.svg);}
+.worth-box-8 .worth-icon {background-image: url(../images/ic50_worth_8.svg);}
+
+.graph-noti {color:#ACB8C2; font-size: 10px;}
+
+.member-week .graph-noti,
+.member-step .graph-noti {position: absolute; right:32px; top:39px;}
+
+/* 주차별인원 그래프 */
+.member-week { min-width: 557px;}
+
+.complete-rate.green + .member-week * {max-width: 509px;}
+.complete-rate.green + .member-week .graph-noti {right:0; left:489px}
+
+/* 단계별 인원 그래프 */
+.member-step {width: 389px; min-width: 389px;}
+
+/* 가치선택 통계 */
+.select-worth .module-box {min-height: 246px;}
+
+.select-worth-data {display:flex; justify-content: space-between; margin-top:32px;}
+.data-list dl {display: flex;}
+.data-list dl ~ dl {margin-top:12px;}
+.data-list dt {min-width: 90px; color:#021442; font-weight: 500; line-height: 1.4;}
+.data-list dd {width: 40px; font-weight: 700; text-align: right; line-height: 1.4;}
+
+.selected-worth > i {margin-bottom:4px;}
+.selected-worth > p {font-size: 10px; text-align: center; font-weight: 500;}
+
+
+/* ==== main ==== */
+.main-container .contents {gap:24px;}
+.main-container .module-box .title2 {margin-bottom:12px; text-align: right;}
+.main-container [class^="ic55-"] {position: absolute;}
+
+.flex-col {display: flex; flex-direction: column; gap:16px;}
+.mode-total {height: 178px; min-height: 178px;}
+.total-list {text-align: right;}
+.total-list dt {margin-bottom:16px; font-size: 16px; font-weight: 500;}
+.total-list dd > strong {font-size: 32px;}
+.total-list dd > small {font-size: 16px; color:#000;}
+
+/* 치료 프로그램 */
+.therapy-state .total-list dt {color:#A694F5}
+
+.tab-therapy {margin:16px 0 22px;}
+.tab-therapy > ul {display: flex; gap:16px;}
+.tab-therapy > ul > li > a {display: block; color:#191D21; font-weight: 500;}
+.tab-therapy > ul > li.on > a {font-weight: 800;}
+
+/* 가치선택 비율 */
+.state-head {display: flex; gap:8px; justify-content: flex-end;}
+.tab-worth {display: flex; justify-content: flex-end; margin-bottom:40px;}
+.tab-worth > ul {position: relative; display: flex; gap:32px; width: fit-content;}
+.tab-worth > ul::before {content: ''; display: block; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); width: 1.5px; height:11px; background-color: #000;}
+.tab-worth > ul > li > a {display: block; color:#ACB8C2; font-size: 17px; font-weight: 500;}
+.tab-worth > ul > li.on > a {font-weight: 800; color:#191D21;}
+
+.worth-select-rate .data-list [class^="ic-worth-"] {width: 24px; height: 24px; margin-right:8px; border-radius: 6px; background-size: 18px 18px;}
+.worth-select-rate .data-list dt {width: 126px;}
+.worth-select-rate .data-list dl ~ dl {margin-top:20px;}
+.worth-select-rate .tab-basic > ul {margin-bottom:0;}
+.worth-select-rate .select-worth-data {margin-top:24px;}
+
+/* 로컬관리자 목록 */
+.local-list >  table {width: 100%;}
+.local-list >  table td {height:33px; padding:4px 6px;}

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>HTML LIST : : 마음무브 ADMIN</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/default.css">
+
+    <!-- 가이드용 -->
+    <link rel="stylesheet" href="guide/asset/fontawesome/css/all.css">
+    <link rel="stylesheet" href="guide/asset/css/guide.css">
+    <script src="guide/asset/js/ui-guide.js"></script>
+    <!-- //가이드용 -->
+
+    <style>
+      body {background-color: #fff; font-weight: 500;}
+      .fa-solid {color:inherit} 
+
+      .fixed-head {position:fixed; top:0; width:100%; z-index:10}
+      
+      h2.bg_green {background-color:#00A684}
+      table {width:100%; line-height:1.3; margin-top:-2px; border-collapse: separate;}
+      table * {font-size:14px}
+      table thead th {height:25px; border-right:1px solid #ccc; border-bottom:1px solid #ccc; line-height:1.3; vertical-align: middle; text-align: center; color:#333; background-color: #ddd}
+      table thead th > span {letter-spacing: -1px;}
+      table tbody th {height:35px; border-right:1px solid #ccc; border-bottom:1px solid #ccc; border-top:1px solid #ccc; line-height:1.3; padding-left:20px; line-height:1.3; vertical-align: middle; text-align:left; letter-spacing: -1px; color:#333; background-color: #eee;}
+      table td {height:37px; padding:5px 10px; line-height:1.3; border-right:1px solid #ccc; border-bottom:1px solid #f1f1f1; vertical-align: middle; color:#333}
+      table tr:nth-child(odd) {background-color:rgba(245,245,245, .7);}
+      .no {text-align:center; font-weight:bold}
+      .date {text-align:center}
+      table .file {text-align:center; color:#bbb}
+      .file > a {color:#333}
+      .status {position:absolute; right:20px; top:10px}
+      .status .sec {display:inline-block; padding:7px 10px; border-radius: 10px; font-weight: bold; font-size:14px; color:#333; background-color: rgba(255,255,255, .7);}
+      .status #finish {padding:0 10px; border-radius: 20px; font-weight:bold; background-color:#fff}
+      .etc {vertical-align: top;}
+
+      .btn-toggle {padding:3px 10px; border:1px solid #fff; border-radius: 10px; color:#004d40; font-size:12px; background-color: #fff;}
+      h2 .btn-toggle {position:absolute; right:20px; top:6px;}
+
+      th .layer, a.layer {color:green !important}
+      th .get, a.get {color:blue !important}
+      th .mobile, a.mobile {color:blue !important}
+      th .comm, a.comm {color:red !important}
+
+      .f-org {color:orange !important}
+
+      table tr.del {text-decoration: line-through; opacity: 0.5}
+
+      [class^="btn-"] > i {margin:0}
+
+      .fc-pri2 {color:green !important;}
+      .fc-point1 {color:blue}
+      .fc-point2 {color:red}
+
+      tr.web td {background-color: rgba(179, 255, 179, 0.2);}
+      tr.app td {background-color: rgba(255, 179, 179, 0.2);}
+
+      tr.thick-line td {border-top: 2px solid #ccc;}
+    </style>
+  </head>
+  <body>
+    <div class="g_wrap html_list">
+      <div class="fixed-head">
+        <header>
+          <h1>HTML LIST : : 마음무브 ADMIN</h1>
+          <a href="guide/guide.html" class="g-btn-gnb">&lt; Guide 보기</a>
+        </header>
+        <nav class="g-gnb-wrap">
+          <div class="gnb-container">
+            <div class="gnb-head"></div>
+            <ul>
+              <li><a href="index.html">HTML List</a></li>
+              <li><a href="guide/guide.html">UI/UX Guide</a>
+                <ul>
+                  <li class="active"><a href="guide/guide.html"><i class="fa-solid fa-minus-circle"></i>  Guide</a></li>
+                  <li><a href="guide/component.html"><i class="fa-solid fa-minus-circle"></i>  Component</a></li>
+                  <li><a href="guide/button.html"><i class="fa-solid fa-minus-circle"></i> Button</a></li>
+                  <li><a href="guide/form.html"><i class="fa-solid fa-minus-circle"></i> Form</a></li>
+                  <li><a href="guide/modal.html"><i class="fa-solid fa-minus-circle"></i> Modal</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="gnb-close"><button type="button"><i class="fa-solid fa-times"></i></button></div>
+          </div>
+        </nav>
+        <div class="status">
+          <div class="sec">진행현황 : <span id="finish">0</span> / <span id="total"></span></div>
+          <div class="sec">진척률 : <span id="progress"></span> %</div>
+        </div>
+        <table class="ls-head">
+          <colgroup>
+            <col style="width:5%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:15%">
+            <col style="width:10%">
+            <col style="width:auto">
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">No</th>
+              <th scope="col" colspan="3">화면</th>
+              <th scope="col" rowspan="2">파일</th>
+              <th scope="col" rowspan="2"><span class="fc-pri2">수정일</span><br>완료일</th>
+              <th scope="col" rowspan="2">비고<br><span class="fc-pri2">수정내용</span> / <span class="fc-point1">참고</span> / <span class="fc-point2">중요</span></th>
+            </tr>
+            <tr>
+              <th scope="col">1 depth</th>
+              <th scope="col">2 depth</th>
+              <th scope="col">3 depth</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <table>
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:10%">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep">메인화면</td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="file"><a href="html/MAIN.html" target="_blank">MAIN</a></td>
+            <td class="date">2026-06-08</td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="menu-01">Common(CM)</h2>
+      <table>
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:10%">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep">서브레이아웃</td>
+            <td class="2dep"></td>
+            <td class="3dep"></td>
+            <td class="file"><a href="html/LAY.10.html" target="_blank">LAY.10</a></td>
+            <td class="date">2025-06-06</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep">공통</td>
+            <td class="2dep">에러화면</td>
+            <td class="3dep"></td>
+            <td class="file"><a href="html/CM1.10.html" target="_blank">CM1.10</a></td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">쪽지 읽기</td>
+            <td class="3dep"></td>
+            <td class="file">CM1.20</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">검색</td>
+            <td class="3dep"></td>
+            <td class="file">CM1.30</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep">로그인</td>
+            <td class="2dep">로그인</td>
+            <td class="3dep"></td>
+            <td class="file"><a href="html/CM2.10.html" target="_blank">CM2.10</a></td>
+            <td class="date">2025-06-06</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">로그아웃</td>
+            <td class="3dep"></td>
+            <td class="file">CM2.20</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="menu-01">GNB</h2>
+      <table>
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:15%">
+          <col style="width:10%">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep">회원관리</td>
+            <td class="2dep">회원조회</td>
+            <td class="3dep">목록</td>
+            <td class="file">AD1.10</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">상세</td>
+            <td class="file">AD1.20</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">로컬관리자 목록</td>
+            <td class="file">AD1.30</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr class="thick-line">
+            <td class="no"></td>
+            <td class="1dep">사용자 정보</td>
+            <td class="2dep">일반모드</td>
+            <td class="3dep">행동계획 상세</td>
+            <td class="file"><a href="html/MM1.10.html" target="_blank">MM1.10</a></td>
+            <td class="date">2025-06-07</td>
+            <td class="etc"></td>
+          </tr>
+          <!-- <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">3종검사</td>
+            <td class="file">MM1.20</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">데일리 우울</td>
+            <td class="file">MM1.30</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">가치설정&목표행동</td>
+            <td class="file">MM1.40</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">음성녹음 다운로드</td>
+            <td class="file">MM1.5 0</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr> -->
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">치료모드</td>
+            <td class="3dep">주차별 그래프</td>
+            <td class="file"><a href="html/MM2.10.html" target="_blank">MM2.10</a></td>
+            <td class="date">2025-06-06</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">3종검사</td>
+            <td class="file"><a href="html/MM2.20.html" target="_blank">MM2.20</a></td>
+            <td class="date">2025-06-06</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">행동계획 상세</td>
+            <td class="file"><a href="html/MM2.30.html" target="_blank">MM2.30</a></td>
+            <td class="date">2025-06-07</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">데일리 우울</td>
+            <td class="file"><a href="html/MM2.40.html" target="_blank">MM2.40</a></td>
+            <td class="date">2025-06-06</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">가치설정&목표행동</td>
+            <td class="file"><a href="html/MM2.50.html" target="_blank">MM2.50</a></td>
+            <td class="date">2025-06-07</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">음성녹음 다운로드</td>
+            <td class="file">MM2.60</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr class="thick-line">
+            <td class="no"></td>
+            <td class="1dep">통계</td>
+            <td class="2dep">회원통계</td>
+            <td class="3dep"></td>
+            <td class="file">ST1.10</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">이용자 통계</td>
+            <td class="3dep">치료모드 통계</td>
+            <td class="file"><a href="html/ST2.10.html" target="_blank">ST2.10</a></td>
+            <td class="date">2025-06-07</td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">일반모드 통계</td>
+            <td class="file"><a href="html/ST3.10.html" target="_blank">ST3.10</a></td>
+            <td class="date">2025-06-07</td>
+            <td class="etc"></td>
+          </tr>
+           <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">가치선택 통계</td>
+            <td class="3dep"></td>
+            <td class="file"><a href="html/ST4.10.html" target="_blank">ST4.10</a></td>
+            <td class="date">2025-06-07</td>
+            <td class="etc"></td>
+          </tr>
+          <tr class="thick-line">
+            <td class="no"></td>
+            <td class="1dep">마이페이지</td>
+            <td class="2dep">수퍼관리자</td>
+            <td class="3dep">쪽지</td>
+            <td class="file">AU1.10</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">내 정보</td>
+            <td class="file">AU1.20</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">로컬관리자 관리</td>
+            <td class="file">AU1.30</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep">로컬 관리자</td>
+            <td class="3dep">쪽지</td>
+            <td class="file">AU2.10</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">내 정보</td>
+            <td class="file">AU2.20</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="no"></td>
+            <td class="1dep"></td>
+            <td class="2dep"></td>
+            <td class="3dep">회원정보</td>
+            <td class="file">AU2.30</td>
+            <td class="date"></td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer>
+      <p>copyright 2025. maummove all rights reserved.</p>
+    </footer>
+
+    <script>
+      let elemNo = document.querySelectorAll(".no");
+      let elemTable = document.querySelectorAll("table");
+      let elemDate = document.querySelectorAll(".date");
+      const fixedHead = document.querySelector(".fixed-head");
+      let elemDel = document.querySelectorAll(".del");
+
+      let count = 0;
+      
+      /* elemNo.forEach(function(obj, i){
+        obj.innerHTML= i + 1;
+      }); */
+
+      elemTable.forEach(function(obj){
+        const no =  obj.querySelectorAll(".no");
+        console.log(no);
+        no.forEach(function(obj, i){
+          obj.innerHTML= i + 1;
+        });
+      });
+      console.log(elemDel.length);
+
+      total.innerHTML = elemNo.length - elemDel.length;
+
+      // 완료건 count 및 진척률
+      elemDate.forEach(function(obj, i){
+        //console.log(elemDate);
+        if(obj.hasChildNodes()){
+          count = count + 1;
+          finish.innerHTML = count;
+          console.log(obj.hasChildNodes());
+        }
+
+        let progr = ( count / (elemNo.length - elemDel.length) ) * 100;
+        progress.innerHTML = Math.floor(progr);
+      });
+
+      //공통 아이콘
+      const comIcon = document.querySelectorAll(".comm");
+      comIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-plug"></i> ');
+      });
+
+      //상단 fixed
+      const htmlWrap = document.querySelector(".html_list");
+      htmlWrap.style.paddingTop = fixedHead.clientHeight + "px";
+      //alert(fixedHead.clientHeight);
+
+      //레이어 아이콘
+      const layerIcon = document.querySelectorAll(".layer");
+      layerIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-clone"></i> ');
+      });
+
+      //모바일 아이콘
+      const mobileIcon = document.querySelectorAll(".mobile");
+      mobileIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-mobile-alt"></i> ');
+      });
+
+      //팝업 아이콘
+      const winPopIcon = document.querySelectorAll(".get");
+      winPopIcon.forEach(function(obj){
+        obj.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-arrow-up-right-from-square"></i> ');
+      });
+
+      //열기닫기
+      const btnTbToggle = document.querySelectorAll(".btn-toggle");
+      btnTbToggle.forEach(function(obj, i){
+        obj.addEventListener('click', function(){
+          const nextTable = obj.closest("h2").nextElementSibling;
+          
+          if (obj.classList.contains("open")){
+            nextTable.style.display = "none";
+            obj.classList.remove("open");
+            obj.innerHTML = "<i class='fa-solid fa-chevron-down'></i>";
+          } else {
+            nextTable.removeAttribute("style");
+            obj.classList.add("open");
+            obj.innerHTML = "<i class='fa-solid fa-chevron-up'></i>";
+          } 
+        });
+      });
+      
+      gnbControlGuide();
+    </script>
+  </body>
+</html>

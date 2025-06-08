@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header">
+      <h1 class="logo"><a href="main.html"><span class="blind">maummove</span></a></h1>
+      <div class="gnb">
+        <div class="login-info">
+          <div class="login-user">
+            <strong>김무브</strong> 님 안녕하세요
+          </div>
+          <div class="my-menu">
+            <a href="#n" class="my-menu__message"><i class="ic24-msg"></i><span class="msg-count">2</span>쪽지확인</a>
+            <span class="bar"></span>
+            <a href="#n" class="my-menu__logout"><i class="ic24-out"></i>로그아웃</a>
+          </div>  
+        </div>
+        <div class="menu-list">
+          <ul>
+            <li><a href="#n"><i class="ic24-smile"></i> 회원정보</a></li>
+            <li><a href="#n"><i class="ic24-pie"></i> 통계 <i class="ic24-down"></i></a>
+              <ul>
+                <li><a href="#n">사용자현황 치료모드</a></li>
+                <li><a href="#n">사용자현황 일반모드</a></li>
+                <li><a href="#n">가치선택 통계</a></li>
+              </ul>
+            </li>
+            <li><a href="#n"><i class="ic24-file"></i> 마이페이지 <i class="ic24-down"></i></a>
+              <ul>
+                <li><a href="#n">쪽지</a></li>
+                <li><a href="#n">회원관리</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>        
+
+    <!-- right :: container -->
+    <div class="container main-container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">관리자 메인</h2>
+      </header>
+      <section class="container-body">
+        <div class="contents">
+          <div class="flex-row">
+            <!-- 모드별 총인원 -->
+            <div class="flex-col">
+              <div class="module-box mode-total">
+                <i class="ic55-file-1"></i>
+                <h2 class="title2">치료모드</h2>
+                <dl class="total-list">
+                  <dt>총인원</dt>
+                  <dd><strong>24,000</strong> <small>명</small></dd>
+                </dl>
+              </div>
+              <div class="module-box mode-total">
+                <i class="ic55-file-2"></i>
+                <h2 class="title2">일반모드</h2>
+                <dl class="total-list">
+                  <dt>총인원</dt>
+                  <dd><strong>24,000</strong> <small>명</small></dd>
+                </dl>
+              </div>
+            </div>
+
+            <!-- 치료 프로그램 -->
+            <div class="module-box state-therapy">
+              <i class="ic55-file-1"></i>
+              <h2 class="title2">치료 프로그램</h2>
+              <dl class="total-list">
+                <dt>완료인원 / 참여인원</dt>
+                <dd><strong>900</strong> <strong>/</strong> <strong>10,000</strong></dd>
+              </dl>
+              <div class="tab tab-therapy" data-tab-index="1"><!-- data-tab-index와 data-tab-cont 값 매칭 -->
+                <ul>
+                  <li class="on"><a href="#mainTab1">주차별 인원</a></li>
+                  <li><a href="#mainTab2">단계별 인원</a></li>
+                </ul>
+              </div>
+              <div class="tab-cont" data-tab-cont="1">
+                <div class="graph tab-cont--open" id="mainTab1">
+                  <canvas id="mainTherapyGraph1" style="width: 100%; height: 162px;"></canvas>
+                </div>
+                <div class="graph" id="mainTab2">
+                  <canvas id="mainTherapyGraph2" style="width: 100%; height: 162px;"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- 가치선택 비율 -->
+            <div class="module-box worth-select-rate">
+              <h2 class="title2">가치선택 비율</h2>
+              <div class="tab tab-worth" data-tab-index="5">
+                <ul>
+                  <li class="on"><a href="#mainTab3">치료모드</a></li>
+                  <li><a href="#mainTab4">일반모드</a></li>
+                </ul>
+              </div>
+              <div class="tab-cont" data-tab-cont="5">
+                <!-- 치료모드 -->
+                <div class="state-cont tab-cont--open">
+                  <div class="state-head">
+                    <div class="tab tab-basic" data-tab-index="3">
+                      <ul>
+                        <li class="on"><a href="#mainTabSub1">2주차</a></li>
+                        <li><a href="#mainTabSub2">6주차</a></li>
+                      </ul>
+                    </div>
+                    <div class="input-date">
+                      <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                      <input type="text" class="input-date__input" id="datepicker1">
+                    </div>  
+                  </div>
+                  <div class="tab-cont" data-tab-cont="3">
+                    <div class="tab-cont--open" id="mainTabSub1">
+                      <div class="select-worth-data">
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-1"></i>가족관계</dt>
+                            <dd>35%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-3"></i>친구/지인관계</dt>
+                            <dd>80%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-4"></i>자기개발/성장</dt>
+                            <dd>70%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-5"></i>영성/종교</dt>
+                            <dd>1%</dd>
+                          </dl>
+                        </div>
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-2"></i>부부/연인관계</dt>
+                            <dd>35%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-6"></i>여가/취미</dt>
+                            <dd>40%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-7"></i>일/직업/교육</dt>
+                            <dd>60%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-8"></i>건강</dt>
+                            <dd>10%</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="mainTabSub2">
+                      <div class="select-worth-data">
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-1"></i>가족관계</dt>
+                            <dd>80%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-3"></i>친구/지인관계</dt>
+                            <dd>50%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-4"></i>자기개발/성장</dt>
+                            <dd>30%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-5"></i>영성/종교</dt>
+                            <dd>10%</dd>
+                          </dl>
+                        </div>
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-2"></i>부부/연인관계</dt>
+                            <dd>5%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-6"></i>여가/취미</dt>
+                            <dd>3%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-7"></i>일/직업/교육</dt>
+                            <dd>69%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-8"></i>건강</dt>
+                            <dd>15%</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 일반모드 -->
+                <div class="state-cont">
+                  <div class="state-head">
+                    <div class="tab tab-basic" data-tab-index="4">
+                      <ul>
+                        <li class="on"><a href="#mainTabSub3">2주차</a></li>
+                        <li><a href="#mainTabSub4">6주차</a></li>
+                      </ul>
+                    </div>
+                    <div class="input-date">
+                      <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                      <input type="text" class="input-date__input" id="datepicker2">
+                    </div>  
+                  </div>
+                  <div class="tab-cont" data-tab-cont="4">
+                    <div class="tab-cont--open" id="mainTabSub3">
+                      <div class="select-worth-data">
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-1"></i>가족관계</dt>
+                            <dd>35%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-3"></i>친구/지인관계</dt>
+                            <dd>80%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-4"></i>자기개발/성장</dt>
+                            <dd>70%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-5"></i>영성/종교</dt>
+                            <dd>1%</dd>
+                          </dl>
+                        </div>
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-2"></i>부부/연인관계</dt>
+                            <dd>35%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-6"></i>여가/취미</dt>
+                            <dd>40%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-7"></i>일/직업/교육</dt>
+                            <dd>60%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-8"></i>건강</dt>
+                            <dd>10%</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="mainTabSub4">
+                      <div class="select-worth-data">
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-1"></i>가족관계</dt>
+                            <dd>80%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-3"></i>친구/지인관계</dt>
+                            <dd>50%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-4"></i>자기개발/성장</dt>
+                            <dd>30%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-5"></i>영성/종교</dt>
+                            <dd>10%</dd>
+                          </dl>
+                        </div>
+                        <div class="data-list">
+                          <dl>
+                            <dt><i class="ic-worth-2"></i>부부/연인관계</dt>
+                            <dd>5%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-6"></i>여가/취미</dt>
+                            <dd>3%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-7"></i>일/직업/교육</dt>
+                            <dd>69%</dd>
+                          </dl>
+                          <dl>
+                            <dt><i class="ic-worth-8"></i>건강</dt>
+                            <dd>15%</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- //state-cont -->
+              </div>
+            </div><!-- //worth-select-rate  -->
+          </div><!-- // flex-row -->
+
+          <div class="flex-row">
+            <!-- 신규 유저 -->
+            <div class="cont-box">
+              <h2 class="title2">신규 유저</h2>
+              <div class="module-box">
+                <div class="table-col">
+                  <table>
+                    <colgroup>
+                      <col style="width: 15%;">
+                      <col style="width: 25%;">
+                      <col style="width: auto;">
+                      <col style="width: 18%;">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>이름</th>
+                        <th>소속</th>
+                        <th>이메일</th>
+                        <th>가입일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>김마음</td>
+                        <td class="ellipsis">없음</td>
+                        <td>asedfghrffgdfdsf@gmail.com</td>
+                        <td>2025.05.03</td>
+                      </tr>
+                      <tr>
+                        <td>김마음</td>
+                        <td class="ellipsis">진달래 마음힐링상 진달래 마음힐링상 진달래 마음힐링상</td>
+                        <td>asedfghrffgdfdsf@gmail.com</td>
+                        <td>2025.05.03</td>
+                      </tr>
+                      <tr>
+                        <td>김마음</td>
+                        <td class="ellipsis">없음</td>
+                        <td>asedfghrffgdfdsf@gmail.com</td>
+                        <td>2025.05.03</td>
+                      </tr>
+                      <tr>
+                        <td>김마음</td>
+                        <td class="ellipsis">진달래 마음힐링상 진달래 마음힐링상 진달래 마음힐링상</td>
+                        <td>asedfghrffgdfdsf@gmail.com</td>
+                        <td>2025.05.03</td>
+                      </tr>
+                      <tr>
+                        <td>김마음</td>
+                        <td class="ellipsis">없음</td>
+                        <td>asedfghrffgdfdsf@gmail.com</td>
+                        <td>2025.05.03</td>
+                      </tr>
+                      <tr>
+                        <td>김마음</td>
+                        <td class="ellipsis">진달래 마음힐링상 진달래 마음힐링상 진달래 마음힐링상</td>
+                        <td>asedfghrffgdfdsf@gmail.com</td>
+                        <td>2025.05.03</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-more-area">
+                  <button type="button" class="btn-more">더보기</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 로컬 관리자 목록 -->
+            <div class="cont-box">
+              <h2 class="title2">로컬 관리자 목록</h2>
+              <div class="module-box">
+                <div class="local-list">
+                  <table>
+                    <colgroup>
+                      <col style="width: 65px;">
+                      <col style="width: 20%;">
+                      <col style="width: auto;">
+                      <col style="width: 18%;">
+                    </colgroup>
+                    <tbody>
+                      <tr>  
+                        <td>
+                          <span class="badge hold">승인보류</span>
+                          <!--
+                            <span class="badge hold">승인보류</span>
+                            <span class="badge okay">승인</span>
+                            <span class="badge stop">정지</span>
+                          -->
+                        </td>
+                        <td>김수한무</td>
+                        <td>금천 초등학교</td>
+                        <td>2025.05.03</td>
+                      </tr>  
+                      <tr>  
+                        <td>
+                          <span class="badge okay">승인</span>
+                        </td>
+                        <td>김수한무</td>
+                        <td>서울대학교 사범대학 부설초등학교</td>
+                        <td>2025.05.03</td>
+                      </tr>  
+                      <tr>  
+                        <td>
+                          <span class="badge stop">정지</span>
+                        </td>
+                        <td>한기쁨슬픔</td>
+                        <td>금천 초등학교</td>
+                        <td>2025.05.03</td>
+                      </tr>  
+                      <tr>  
+                        <td>
+                          <span class="badge okay">승인</span>
+                        </td>
+                        <td>김수한무</td>
+                        <td>서울대학교 사범대학 부설초등학교</td>
+                        <td>2025.05.03</td>
+                      </tr>  
+                      <tr>  
+                        <td>
+                          <span class="badge stop">정지</span>
+                        </td>
+                        <td>한기쁨슬픔</td>
+                        <td>금천 초등학교</td>
+                        <td>2025.05.03</td>
+                      </tr>  
+                      <tr>  
+                        <td>
+                          <span class="badge hold">승인보류</span>
+                        </td>
+                        <td>김수한무</td>
+                        <td>서울대학교 사범대학 부설초등학교</td>
+                        <td>2025.05.03</td>
+                      </tr>  
+                      <tr>  
+                        <td>
+                          <span class="badge stop">정지</span>
+                        </td>
+                        <td>조열리미</td>
+                        <td>허그맘 센트럴파크점</td>
+                        <td>2025.05.03</td>
+                      </tr>                      
+                    </tbody>
+                  </table>
+                </div>
+                <div class="btn-more-area">
+                  <button type="button" class="btn-more">더보기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </section>
+
+      <!-- footer -->
+      <footer class="container-foot">
+        <address>관리 책임자 : 김무브 &nbsp; | &nbsp; 이메일 : maummove@gmail.com &nbsp; | &nbsp; 2025 maummove all right reserved. &nbsp; 본 사이트를 무단복제,사용시 법적인 제재를 받습니다.</address>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    $('.tab-therapy li').eq(1).click(function(){
+      let hasWidth = $('#mainTherapyGraph2').attr('width');
+      console.log(hasWidth);
+      if(hasWidth == undefined) {
+        setTimeout(function(){
+          graph2();
+        }, 100);
+      }
+    });
+
+    // 주차별인원
+    const mainTherapyGraph1 = document.getElementById('mainTherapyGraph1');
+    new Chart(mainTherapyGraph1, {
+      type: 'bar',
+      data: {
+        labels: ['2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차'],
+        datasets: [{
+          label: '행동계획',
+          data: [50, 10, 90, 38, 8, 55, 30],
+          backgroundColor: '#A694F5',
+          barThickness: 16,
+          borderRadius: 4,
+          borderWidth: 0,     
+        }],
+      },
+      options: {
+        scales: {
+          y: {
+            weight:3,
+            beginAtZero: true, 
+            border: {
+              display: false,
+              dash: [2,4],
+            },           
+            grid: {
+              color: '#ACB8C2',
+              lineWidth:0.5,
+              tickWidth:0,              
+            },
+            ticks: {
+              stepSize: 20,
+              font: {
+                size: 12,
+              },         
+              color:'#acb8c2',   
+            },            
+          },
+          x: {      
+            grid: {
+              display: false,
+            },
+            border: {
+              display: false,
+            },  
+            ticks: {
+              color: '#65708D',  
+            },           
+          }
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+
+    // 단계별 인원
+    function graph2() {
+      const mainTherapyGraph2 = document.getElementById('mainTherapyGraph2');
+      new Chart(mainTherapyGraph2, {
+        type: 'bar',
+        data: {
+          labels: ['완료', '진행중', '시작', '중단'],
+          datasets: [{
+            label: '행동계획',
+            data: [100, 500, 1000, 400],
+            backgroundColor: '#A694F5',
+            barThickness: 16,
+            borderRadius: 24,
+            borderWidth: 0,
+            datalabels: {
+              align: 'center',
+              anchor: 'center'
+            }
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            y: {
+              weight:3,
+              beginAtZero: true, 
+              border: {
+                display: false,
+                dash: [2,4],
+              },           
+              grid: {
+                color: '#ACB8C2',
+                lineWidth:0.5,
+                tickWidth:0,              
+              },
+              ticks: {
+                stepSize: 500,
+                font: {
+                  size: 12,
+                },         
+                color:'#acb8c2',   
+              },            
+            },
+            x: {      
+              grid: {
+                display: true,
+                tickWidth:0,   
+              },
+              border: {
+                display: false,
+                dash: [2,4],
+              }, 
+              ticks: {
+                color: '#65708D',  
+              },           
+            }
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              enabled: false,
+            },
+          }
+        }
+      });
+    }
+
+    // date
+    let inpuDate = $('.input-date');
+    inpuDate.each(function(i){
+      $("#datepicker" + (i+1)).datepicker({
+        dateFormat: 'yy.mm.dd',
+        onSelect: function (dateText, inst) {
+          $(inst.input[0]).prev().html('<i class="ic14-date"></i>' + dateText);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">사용자 정보</h2>
+      </header>
+      <section class="container-body">
+        <aside class="sub-lnb">
+          <div class="module-box user-info">
+            <h3 class="title2">이미소</h3>
+            <div class="user-img">
+              <img src="../assets/images/photo.png" alt="사용자 이미지">
+            </div>
+            <div class="user-name">닉네임 : 괴수냥</div>
+            <div class="user-join">가입일 : 2025.02.25</div>
+          </div>
+          <div class="module-box lnb-menu">
+            <ul>
+              <li><a href="#n">주차별 그래프<small>(자료모드)</small></a></li>
+              <li><a href="#n">3종검사 </a></li>
+              <li><a href="#n">행동계획 상세 </a></li>
+              <li><a href="#n">데일리 우울  </a></li>
+              <li class="on"><a href="#n">가치설정&목표행동 </a></li>
+              <li><a href="#n">음성녹음 Data </a></li>
+              <li><a href="#n">종합리포트 </a></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="contents">
+          <div class="flex-row">
+            <!-- 
+              worth-box-1 : 가족관계
+              worth-box-2 : 부부/연인관계
+              worth-box-3 : 친구/지인관계 
+              worth-box-4 : 자기개발/성장장 
+              worth-box-5 : 영성/종교교 
+              worth-box-6 : 여가/취미미 
+              worth-box-7 : 일/직업/교육
+              worth-box-8 : 건강
+             -->
+            <div class="module-box worth-box-1">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>가족관계</p>
+            </div>
+
+            <!-- 가치만족도 변화 -->
+            <div class="module-box">
+              <h3 class="title3">가치만족도 변화</h3>
+              <div class="graph">
+                <canvas id="graphLine1" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+
+            <!-- 상세정보 -->
+            <div class="module-box worth-detail">
+              <h3 class="title2">상세정보</h3>
+              <div class="tab tab-basic" data-tab-index="1"><!-- data-tab-index와 data-tab-cont 값 매칭 -->
+                <ul>
+                  <li class="on"><a href="#tab1">2주차</a></li>
+                  <li><a href="#tab2">6주차</a></li>
+                </ul>
+              </div>
+              <div class="tab-cont" data-tab-cont="1">
+                <!-- 2주차 -->
+                <div class="info-list col tab-cont--open" id="tab1">
+                  <dl>        
+                    <dt>2주차 만족도 점수변화</dt>
+                    <dd>2024.01.23 (3점) ~ 2024.02.30 (3점)  </dd>
+                  </dl>
+                  <dl>
+                    <dt>마지막 검사일</dt>
+                    <dd>2024.5.30</dd>
+                  </dl>
+                </div>
+                <!-- 6주차 -->
+                <div class="info-list col" id="tab2">
+                  <dl>        
+                    <dt>6주차 만족도 점수변화</dt>
+                    <dd>2025.01.23 (3점) ~ 2025.02.30 (3점)  </dd>
+                  </dl>
+                  <dl>
+                    <dt>마지막 검사일</dt>
+                    <dd>2025.5.30</dd>
+                  </dl>
+                </div>
+              </div>              
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <div class="module-box">
+              <div class="btn-left">
+                <div class="input-date">
+                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <input type="text" class="input-date__input" id="datepicker">
+                </div>  
+                <button type="button" class="btn-basic">전체 다운로드</button>
+              </div>
+              <div class="table-col">
+                <table>
+                  <colgroup>
+                    <col style="width: 15%;">
+                    <col style="width: 20%;">
+                    <col style="width: 25%;">
+                    <col style="width: 25%;">
+                    <col style="width: 15%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>만족도 검사진행일</th>
+                      <th>검사를 진행하는 가치</th>
+                      <th>현재 가치만족도 점수 / 현재 가치평가 일자</th>
+                      <th>기존 가치만족도 점수 / 기존 가치평가 일자</th>
+                      <th>마지막 검사일자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>자기개발 / 성장</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>친구/지인관계</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>일/직업/교육</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>부부/연인관계</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>건강</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>건강</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+
+  <script>
+    //가치만족도 변화
+    const graphLine1 = document.getElementById('graphLine1');
+    new Chart(graphLine1, {
+      type: 'line',
+      data: {
+        labels: ['2주', '3주', '4주', '5주', '6주', '7주' ,'8주'],
+        datasets: [{
+          label: '',
+          data: [5, NaN, NaN, 2],
+          spanGaps:true,
+          fill: false,
+          borderColor: '#3DBDFD',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#3DBDFD',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        },
+        {
+          label: '',
+          data: [, , , , 4, NaN, 8],
+          spanGaps:true,
+          fill: false,
+          borderColor: '#3086F3',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#3086F3',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            max:10,
+            min:1,
+            beginAtZero: true, 
+            border: {
+              display: false,
+              dash: [2,4],
+            },           
+            grid: {
+              color: '#ACB8C2',
+              lineWidth:0.5,
+              tickWidth:1, 
+              tickLength:15,
+              tickBorderDash: [1,4],
+              tickColor:'#ACB8C2',
+            },
+            ticks: {
+              stepSize: 1,
+              callback: (val) => {
+                return (
+                  val + '   '
+                );
+              },  
+              font: {
+                size: 10,
+              },         
+              color:'#acb8c2',   
+            },            
+          },
+          x: {      
+            grid: {
+              display: false,
+            },
+            border: {
+              display: false,
+            },  
+            ticks: {
+               color: '#65708D',  
+            },           
+          }
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+  </script>
+
+  <script>
+    $("#datepicker").datepicker({
+      dateFormat: 'yy.mm.dd',
+      onSelect: function (dateText, inst) {
+        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
+      }
+    });
+  </script>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(0, 0);
+   }, 500);    
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>

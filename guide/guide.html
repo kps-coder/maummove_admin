@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Guide List</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/default.css">
+
+    <!-- 가이드용 -->
+    <link rel="stylesheet" href="asset/fontawesome/css/all.css">
+    <link rel="stylesheet" href="asset/css/guide.css">
+    <script src="asset/js/ui-guide.js"></script>
+    <!-- //가이드용 -->
+
+    <style>
+      /* .g_tabHead {position:sticky; top:0; z-index: 10;}
+      .toggle-box {display:none; background-color:#eee}
+      .toggle-box.on {display:inline-block; padding:5px}
+      .btns-def.on {background-color: #eee;} */
+
+      iframe {border:1px solid #ccc}
+      .grp_flex_wrap {display: flex;}
+      .grp_flex_wrap > * {margin-left:24px}
+    </style>
+
+  </head>
+  <body>
+    <div class="g_wrap guide_list">
+      <header>
+        <h1><i class="fab fa-css3"></i> UI/UX Guide : : NICE D&B</h1>
+        <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
+      </header>
+      <nav class="g-gnb-wrap"></nav>
+      <div class="g_tabHead">
+        <ul>
+          <li class="active"><a href="guide.html">Guide</a></li>
+          <li><a href="component.html">Component</a></li>
+          <li><a href="button.html">Button &amp; Tab</a></li>
+          <li><a href="form.html">Form</a></li>
+          <li><a href="modal.html">Modal</a></li>
+          <li><a href="board.html">Board</a></li>
+        </ul>
+      </div>
+      <div class="g_tabBody">
+        <section class="tabContent on">
+          <h2><i class="far fa-caret-square-right"></i> Sub layout</h2>
+          <div class="contBody">
+            <ul>
+              <li>* <strong class="fColor1">지주가이드를 바탕</strong>으로 주택담보대출만의 class 추가</li>
+            </ul>
+  <xmp>
+    <div id="wrapper" class="loan_wrapper">
+      <div id="header"  class="loan_header"></div>
+      <div id="container" class="loan_container">
+        <div id="contents" class="content_wrap"></div>
+      </div>
+    </div>
+  </xmp>
+          </div>
+          <div class="contBody">
+            
+          </div>
+        </section>
+        <section class="tabContent on">
+          <h2><i class="far fa-caret-square-right"></i> Css Guide</h2>
+          <div class="contBody">
+            <ul>
+              <li>* 주택담보대출 css 별도 사용</li>
+              <li>* 파일 위치 : <strong class="fColor1">/css/loan/kjb_loan.css</strong></li>
+            </ul>
+          </div>
+        </section>
+        <section class="tabContent on">
+          <h2><i class="far fa-caret-square-right"></i> images Guide</h2>
+          <div class="contBody">
+            <ul>
+              <li>* 주택담보대출 images 폴더 생성</li>
+              <li>* 파일 위치 : <strong class="fColor1">/images/loan/</strong></li>
+            </ul>
+          </div>
+        </section>
+        <section class="tabContent on">
+          <h2><i class="far fa-caret-square-right"></i> js Guide</h2>
+          <div class="contBody">
+            <ul>
+              <li>* 지주가이드 사용</li>
+              <li>* <strong class="fColor1">라디오버튼 웹접근성 이슈가 있어서 기존 common.js에 추가</strong> (3949 ~ 3964 line 추가)</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer>
+      <p>copyright 2023. NICE D&B all rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript">
+      tabControl("g_tabHead", "g_tabBody"); // 가이드 상단 탭
+
+      const tabBtn = document.querySelectorAll(".g_tabHead li");
+      const tabContent = document.querySelectorAll(".tabContent");
+      tabBtn.forEach(function(obj, i){
+        obj.addEventListener("click",function(e){
+          setTimeout(function(){
+            const scroller = document.scrollingElement.scrollTop;
+            //console.log(scroller);
+            document.scrollingElement.scrollTop = scroller - 46;
+          }, 1);
+        });
+      });
+    </script>
+    <script src="asset/js/g_include.js"></script> <!-- 퍼블전용 :: 사용금지 -->
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Guide List</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../assets/css/default.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+
+    <!-- 가이드용 -->
+    <link rel="stylesheet" href="asset/fontawesome/css/all.css">
+    <link rel="stylesheet" href="asset/css/guide.css">
+    <script src="asset/js/ui-guide.js"></script>
+    <!-- //가이드용 -->
+
+    <style>
+      /* .g_tabHead {position:sticky; top:0; z-index: 10;}
+      .toggle-box {display:none; background-color:#eee}
+      .toggle-box.on {display:inline-block; padding:5px}
+      .btns-def.on {background-color: #eee;} */
+
+      .mobile_375 {width:375px; margin:0 auto}
+
+      .grp_flex_between {align-items: flex-start;}
+      .grp_flex_between .contBody {width:60%}
+    </style>
+
+  </head>
+  <body>
+    <div class="g_wrap guide_list">
+      <header>
+        <h1><i class="fab fa-css3"></i> UI/UX Guide : : NICE D&B</h1>
+        <button type="button" class="g-btn-gnb"><i class="fas fa-bars"></i></button>
+      </header>
+      <nav class="g-gnb-wrap"></nav>
+      <div class="g_tabHead">
+        <ul>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="component.html">Component</a></li>
+          <li><a href="button.html">Button &amp; Tab</a></li>
+          <li class="active"><a href="form.html">Form</a></li>
+          <li><a href="modal.html">Modal</a></li>
+          <li><a href="board.html">Board</a></li>
+        </ul>
+      </div>
+      <div class="g_tabBody">
+        <section class="tabContent on">
+          <h2><i class="far fa-caret-square-right"></i> input text</h2>
+          <div class="contBody">
+            <ul>
+              <li>* </li>
+            </ul>
+
+            <input type="text" class="input-text" placeholder="text">
+            <input type="password" class="input-pwd" placeholder="password">
+            
+  <xmp>
+    <input type="text" class="input-text">
+    <input type="password" class="input-pwd">
+  </xmp>
+          </div>
+
+          <h2><i class="far fa-caret-square-right"></i> input radio</h2>
+          <div class="contBody">
+            <span class="input-radio"><input type="radio" name="ra01" id="ra01_1"><label for="ra01_1">라디오</label></span>
+            <span class="input-radio"><input type="radio" name="ra01" id="ra01_2"><label for="ra01_2">라디오</label></span>
+
+  <xmp>
+    <span class="input-radio"><input type="radio" name="ra01" id="ra01_1"><label for="ra01_1">라디오</label></span>
+    <span class="input-radio"><input type="radio" name="ra01" id="ra01_2"><label for="ra01_2">라디오</label></span>
+  </xmp>
+          </div>  
+
+          <h2><i class="far fa-caret-square-right"></i> input checkbox</h2>
+          <div class="contBody">
+            <span class="input-checkbox"><input type="checkbox" name="ch01" id="ch01_1"><label for="ch01_1">체크박스</label></span>
+            <span class="input-checkbox"><input type="checkbox" name="ch01" id="ch01_2"><label for="ch01_2">체크박스</label></span>
+
+  <xmp>
+    <span class="input-checkbox"><input type="checkbox" name="ch01" id="ch01_1"><label for="ch01_1">체크박스</label></span>
+    <span class="input-checkbox"><input type="checkbox" name="ch01" id="ch01_2"><label for="ch01_2">체크박스</label></span>
+  </xmp>
+          </div>  
+
+          <h2><i class="far fa-caret-square-right"></i> select</h2>
+          <div class="contBody">
+            <span class="input-select">
+              <select id="sel01">
+                <option>옵션1</option>
+                <option>옵션2</option>
+              </select>
+            </span>
+
+  <xmp>
+    <span class="input-select">
+      <select id="sel01">
+        <option>옵션1</option>
+        <option>옵션2</option>
+      </select>
+    </span>
+  </xmp>
+          </div>  
+
+          <h2><i class="far fa-caret-square-right"></i> textarea</h2>
+          <div class="contBody">
+            <textarea name="textarea01" id="textarea01" cols="30" rows="3" class="input-textarea"></textarea>
+
+  <xmp>
+    <textarea name="textarea01" id="textarea01" cols="30" rows="3" class="input-textarea"></textarea>
+  </xmp>
+          </div>  
+
+          <h2><i class="far fa-caret-square-right"></i> form element</h2>
+          <div class="contBody">
+            <h3><i class="fa-solid fa-keyboard"></i> 검색창</h3>
+            <div class="input-search">
+              <input type="text" name="inpSearch" id="inpSearch" class="input-search__input" placeholder="키워드/기업명/ D-U-N-S® Number">
+              <button type="button" class="input-search__btn"><span class="blind">검색</span></button>
+            </div>
+
+  <xmp>
+    <div class="input-search">
+      <input type="text" name="inpSearch" id="inpSearch" class="input-search__input" placeholder="placeholder">
+      <button type="button" class="input-search__btn"><span class="blind">검색</span></button>
+    </div>
+  </xmp>
+          </div>  
+          
+
+        </section>
+      </div>
+    </div>
+
+    <footer>
+      <p>copyright 2023. NICE D&B all rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript">
+      tabControl("g_tabHead", "g_tabBody"); // 가이드 상단 탭
+
+      const tabBtn = document.querySelectorAll(".g_tabHead li");
+      const tabContent = document.querySelectorAll(".tabContent");
+      tabBtn.forEach(function(obj, i){
+        obj.addEventListener("click",function(e){
+          setTimeout(function(){
+            const scroller = document.scrollingElement.scrollTop;
+            //console.log(scroller);
+            document.scrollingElement.scrollTop = scroller - 46;
+          }, 1);
+        });
+      });
+    </script>
+    <script src="asset/js/g_include.js"></script> <!-- 퍼블전용 :: 사용금지 -->
+  </body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">사용자 정보</h2>
+      </header>
+      <section class="container-body">
+        <aside class="sub-lnb">
+          <div class="module-box user-info">
+            <h3 class="title2">이미소</h3>
+            <div class="user-img">
+              <img src="../assets/images/photo.png" alt="사용자 이미지">
+            </div>
+            <div class="user-name">닉네임 : 괴수냥</div>
+            <div class="user-join">가입일 : 2025.02.25</div>
+          </div>
+          <div class="module-box lnb-menu">
+            <ul>
+              <li class="on"><a href="#n">주차별 그래프<small>(자료모드)</small></a></li>
+              <li><a href="#n">3종검사 </a></li>
+              <li><a href="#n">행동계획 상세 </a></li>
+              <li><a href="#n">데일리 우울  </a></li>
+              <li><a href="#n">가치설정&목표행동 </a></li>
+              <li><a href="#n">음성녹음 Data </a></li>
+              <li><a href="#n">종합리포트 </a></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="contents">
+          <div class="flex-row">
+            <!-- mode-1 : 일반모드 / mode-2 : 치료모드 -->
+            <div class="module-box mode-2">
+              <h3 class="title2">치료모드</h3>
+              <div class="mode-img"></div>
+              <p><strong>12주차 진행중</strong></p>
+              <p>2025.01.20~2025.05.20</p>
+            </div>
+
+            <div class="module-box complete-rate">
+              <h3 class="title2">행동완료 비율</h3>
+              <div class="complete-graph">
+                <canvas id="completeGraph"></canvas>
+                <div class="complete-graph__value">80%</div>
+              </div>
+              <p>행동완료 <strong>40</strong> / 행동계획 <strong>60</strong></p>
+            </div>
+
+            <div class="module-box detail-info">
+              <h3 class="title2">상세정보</h3>
+              <div class="info-list">
+                <dl>
+                  <dt>이메일</dt>
+                  <dd>asdfgqwertyuy@gmail.com</dd>
+                </dl>
+                <dl>
+                  <dt>소속기관</dt>
+                  <dd>서울대학교 사범대학 부설 초등학교</dd>
+                </dl>
+                <dl>
+                  <dt>로컬관리자</dt>
+                  <dd>한마음</dd>
+                </dl>
+                <dl>
+                  <dt>마지막 로그인</dt>
+                  <dd>2025.5.30</dd>
+                </dl>
+              </div>
+              <div class="btn-right">
+                <button type="button" class="btn-basic"><i class="ic14-reset"></i> 비밀번호 초기화</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="module-box graph-1">
+              <h4 class="title3">가치만족도 변화</h4>
+              <div class="graph">
+                <canvas id="graphLine1" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+            <div class="module-box graph-2">
+              <h4 class="title3">주차별 행동완료 현황</h4>
+              <div class="graph">
+                <canvas id="graphBar" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="module-box graph-3">
+              <h4 class="title3">주차별 우울 변화</h4>
+              <div class="graph">
+                <canvas id="graphLine2" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+            <div class="module-box graph-3">
+              <h4 class="title3">주차별 스트레스 변화</h4>
+              <div class="graph">
+                <canvas id="graphLine3" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+            <div class="module-box graph-3">
+              <h4 class="title3">주차별 삶의만족도 변화</h4>
+              <div class="graph">
+                <canvas id="graphLine4" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+  <script>
+    //행동완룔 비율
+    const completeGraph = document.getElementById('completeGraph');
+    const cgData = {
+      datasets: [{
+        label: '',
+        data: [20, 80],
+        backgroundColor: [
+          'rgba(233, 237, 240, 0)',
+          '#A694F5',
+        ],
+        borderRadius: 30,
+        borderWidth: 0,
+        hoverOffset: 0
+      }]
+    };
+
+    new Chart(completeGraph, {
+      type: 'doughnut',
+      data: cgData,
+      options: {
+        rotation: -150,
+        circumference: 300,
+        cutout:40,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+
+    //가치만족도 변화
+    const graphLine1 = document.getElementById('graphLine1');
+
+    new Chart(graphLine1, {
+      type: 'line',
+      data: {
+        labels: ['2주', '3주', '4주', '5주', '6주', '7주' ,'8주'],
+        datasets: [{
+          label: '',
+          data: [5, NaN, NaN, 2],
+          spanGaps:true,
+          fill: false,
+          borderColor: '#3DBDFD',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#3DBDFD',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        },
+        {
+          label: '',
+          data: [, , , , 4, NaN, 8],
+          spanGaps:true,
+          fill: false,
+          borderColor: '#3086F3',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#3086F3',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        }]
+      },
+      options: {
+        fill: false,
+        interaction: {
+          intersect: false
+        },
+        radius: 0,
+        scales: {
+          y: {
+            max:10,
+            min:1,
+            beginAtZero: true, 
+            border: { 
+              display: false,
+              dash: [2,4],
+            },           
+            grid: {
+              color: '#ACB8C2',
+              lineWidth:0.5,
+              tickWidth:1, 
+              tickLength:15,
+              tickBorderDash: [1,4],
+              tickColor:'#ACB8C2',
+            },
+            ticks: {
+              stepSize: 1,
+              callback: (val) => {
+                return (
+                  val + '   '
+                );
+              },  
+              font: {
+                size: 10,
+              },         
+              color:'#acb8c2',   
+            },            
+          },
+          x: {      
+            grid: {
+              display: false,
+            },
+            border: {
+              display: false,
+            },  
+            ticks: {
+               color: '#65708D',  
+            },           
+          }
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+
+    //주차별 행동완료 현황
+    const graphBar = document.getElementById('graphBar');
+    new Chart(graphBar, {
+      type: 'bar',
+      data: {
+        labels: ['2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차'],
+        datasets: [{
+          label: '행동계획',
+          data: [1, 2, 3, 2, 2, 3, 1],
+          backgroundColor: '#DCD4FF',
+          barThickness: 12,
+          borderRadius: 2,
+          borderWidth: 0,     
+        },
+        {
+          label: '행동완료',
+          data: [1, 2, 1, 1, 2, 0.5, 1.5],
+          backgroundColor: '#7863D3',
+          barThickness: 12,
+          borderRadius: 2,
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        scales: {
+          y: {
+            weight:3,
+            beginAtZero: true, 
+            border: {
+              display: false,
+              dash: [2,4],
+            },           
+            grid: {
+              color: '#ACB8C2',
+              lineWidth:0.5,
+              tickWidth:0,              
+            },
+            ticks: {
+              stepSize: 1,
+              callback: (val) => {
+                return (
+                  val + '개'
+                );
+              },  
+              font: {
+                size: 12,
+              },         
+              color:'#acb8c2',   
+            },            
+          },
+          x: {      
+            grid: {
+              display: false,
+            },
+            border: {
+              display: false,
+            },  
+            ticks: {
+               color: '#65708D',  
+            },           
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            align:'end',
+            labels: {
+              boxWidth:11,
+              oxHeight: 11,
+              useBorderRadius: 2,
+              font: {
+                size: 10,
+              }
+            },
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+    
+    // linechart
+    const graphLine2 = document.getElementById('graphLine2');
+    const graphLine3 = document.getElementById('graphLine3');
+    const graphLine4 = document.getElementById('graphLine4');
+
+    const lineOptin = {
+      scales: {
+        y: {
+          weight:3,
+          beginAtZero: true, 
+          border: {
+            display: false,
+            dash: [2,4],
+          },           
+          grid: {
+            color: '#ACB8C2',
+            lineWidth:0.5,
+            tickWidth:0,              
+          },
+          ticks: {
+            stepSize: 20,
+            font: {
+              size: 10,
+            },         
+            color:'#acb8c2', 
+          },            
+        },
+        x: {      
+          grid: {
+            display: false,
+          },
+          border: {
+            display: false,
+          },  
+          ticks: {
+            color: '#65708D',  
+            font:{
+              size:10,
+            }
+          },           
+        }
+      },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          enabled: false,
+        },
+      }
+    }
+
+    //주차별 우울 변화
+    new Chart(graphLine2, {
+      type: 'line',
+      data: {
+        labels: ['사전', '1주', '2주', '3주', '4주', '5주', '6주', '7주', '8주'],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [40, 60, 40, 20, 20, 60, 80, 40, 60],
+          fill: false,
+          borderColor: '#344BFD',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#344BFD',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        }]
+      },
+      options: lineOptin,
+    });
+
+    //주차별 스트레스 변화
+    new Chart(graphLine3, {
+      type: 'line',
+      data: {
+        labels: ['사전', '1주', '2주', '3주', '4주', '5주', '6주', '7주', '8주'],
+        datasets: [{
+          label: '',
+          data: [60, 80, 60, 100, 40, 80, 100, 60, 80],
+          fill: false,
+          borderColor: '#F68D2B',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#F68D2B',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        }]
+      },
+      options: lineOptin,
+    });
+
+    //주차별 삶의만족도 변화
+    new Chart(graphLine4, {
+      type: 'line',
+      data: {
+        labels: ['사전', '1주', '2주', '3주', '4주', '5주', '6주', '7주', '8주'],
+        datasets: [{
+          label: '',
+          data: [40, 20, 0, 20, 20, 40, 80, 40, 20],
+          fill: false,
+          borderColor: '#67B17C',
+          tension: 0.1,
+          backgroundColor: '#fff',
+          pointBorderColor: '#67B17C',
+          pointStyle: 'circle',
+          pointRadius: 6,
+          pointBorderWidth:6,
+          borderWidth:1,
+          pointHoverRadius: 6,
+          pointHoverBorderWidth: 6,
+        }]
+      },
+      options: lineOptin,
+    });
+  </script>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(0, 0);
+   }, 500);    
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>

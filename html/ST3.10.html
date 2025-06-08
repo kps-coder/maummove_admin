@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>  
+  <script src="../assets/js/lib/chartjs-plugin-datalabels.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">사용자현황 일반모드</h2>
+      </header>
+      <section class="container-body">
+        <div class="contents">
+          <div class="flex-row">
+            <div class="module-box complete-rate green">
+              <h3 class="title2">일반모드 총인원 <br> 24,000 명</h3>
+              <div class="complete-graph">
+                <canvas id="completeGraph"></canvas>
+                <div class="complete-graph__value">80%</div>
+              </div>
+              <p>치로모드 <strong>80</strong> / 일반모드드 <strong>20</strong></p>
+            </div>
+
+            <div class="module-box member-week">
+              <h3 class="title3">주차별 인원</h3>
+              <p class="graph-noti">※ 최근 한달</p>
+              <div class="graph">
+                <canvas id="graphBar1" style="width: 100%; height:180px"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="module-box">
+              <!-- 조건 검색 -->
+              <div class="table-search">
+                <div class="search-box">
+                  <input type="text" title="개인회원 검색" placeholder="개인회원 검색">
+                  <button type="button" class="search-box__btn">검색</button>
+                </div>
+                <div class="input-date">
+                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <input type="text" class="input-date__input" id="datepicker">
+                </div>  
+              </div>  
+              <div class="column-box">
+                <!-- 왼쪽 테이블 -->
+                <div class="table-col">
+                  <table>
+                    <colgroup>
+                      <col style="width: 10%;">
+                      <col style="width: 10%;">
+                      <col style="width: 10%;">
+                      <col style="width: 10%;">
+                      <col style="width: 15%;">
+                      <col style="width: 15%;">
+                      <col style="width: 10%;">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>수행회차</th>
+                        <th>진행주차</th>
+                        <th>진행상태</th>
+                        <th>시작일</th>
+                        <th>종료 예정일</th>
+                        <th>음성녹음</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>                      
+                    </tbody>
+                  </table>
+                </div><!-- //table-col -->
+
+                <!-- 오른쪽 테이블 -->
+                <div class="table-col">
+                  <table>
+                    <colgroup>
+                      <col style="width: 10%;">
+                      <col style="width: 10%;">
+                      <col style="width: 10%;">
+                      <col style="width: 10%;">
+                      <col style="width: 15%;">
+                      <col style="width: 15%;">
+                      <col style="width: 10%;">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>수행회차</th>
+                        <th>진행주차</th>
+                        <th>진행상태</th>
+                        <th>시작일</th>
+                        <th>종료 예정일</th>
+                        <th>음성녹음</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>   
+                      <tr>
+                        <td>김무브</td>
+                        <td>2</td>
+                        <td>5</td>
+                        <td>진행중</td>
+                        <td>2025.01.22</td>
+                        <td>2025.03.01</td>
+                        <td>파일</td>
+                      </tr>                      
+                    </tbody>
+                  </table>
+                </div><!-- //table-col -->
+              </div>       
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>     
+            </div>
+          </div><!-- //flex-row -->
+        </div>
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+
+  <script>
+    //행동완룔 비율
+    const completeGraph = document.getElementById('completeGraph');
+    const cgData = {
+      datasets: [{
+        label: '',
+        data: [20, 80],
+        backgroundColor: [
+          'rgba(233, 237, 240, 0)',
+          '#62E184',
+        ],
+        borderRadius: 30,
+        borderWidth: 0,
+        hoverOffset: 0
+      }]
+    };
+
+    new Chart(completeGraph, {
+      type: 'doughnut',
+      data: cgData,
+      options: {
+        rotation: -150,
+        circumference: 300,
+        cutout:40,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+
+    // 주차별 인원
+    const graphBar1 = document.getElementById('graphBar1');
+    new Chart(graphBar1, {
+      type: 'bar',
+      data: {
+        labels: ['1주차', '2주차', '3주차', '4주차', '5주차', '6주차', '8주차'],
+        datasets: [{
+          label: '행동계획',
+          data: [2400, 1700, 1200, 480, 480, 200, 200, 100],
+          backgroundColor: '#42A8B8',
+          barThickness: 40,
+          borderRadius: 24,
+          borderWidth: 0,
+          datalabels: {
+            align: 'center',
+            anchor: 'center'
+          }
+        }],
+      },
+      plugins: [ChartDataLabels],
+      options: {
+        scales: {
+          y: {
+            weight:3,
+            beginAtZero: true, 
+            border: {
+              display: false,
+              dash: [2,4],
+            },           
+            grid: {
+              color: '#ACB8C2',
+              lineWidth:0.5,
+              tickWidth:0,              
+            },
+            ticks: {
+              stepSize: 500,
+              font: {
+                size: 12,
+              },         
+              color:'#acb8c2',   
+            },            
+          },
+          x: {      
+            grid: {
+              display: true,
+              tickWidth:0,   
+            },
+            border: {
+              display: false,
+              dash: [2,4],
+            }, 
+            ticks: {
+               color: '#ACB8C2',  
+            },           
+          }
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+          datalabels: {
+            color: '#fff',
+            font:{
+              size:10,
+            },
+          }
+        }
+      }
+    });
+  
+    // 단계별 인원
+    const graphBar2 = document.getElementById('graphBar2');
+    const graphBar2Chart = new Chart(graphBar2, {
+      type: 'bar',
+      data: {
+        labels: ['완료', '진행중', '시작', '중단'],
+        datasets: [{
+          label: '행동계획',
+          data: [100, 500, 1000, 400],
+          backgroundColor: '#A3CD56',
+          barThickness: 16,
+          borderRadius: 24,
+          borderWidth: 0,
+          datalabels: {
+            align: 'end',
+            anchor: 'start'
+          }
+        }],
+      },
+      options: {
+        indexAxis: 'y',
+        scales: {
+          y: {
+            weight:3,
+            beginAtZero: true, 
+            border: {
+              display: false,
+              dash: [2,4],
+            },           
+            grid: {
+              color: '#ACB8C2',
+              lineWidth:0.5,
+              tickWidth:0,              
+            },
+            ticks: {
+              stepSize: 500,
+              font: {
+                size: 12,
+              },         
+              color:'#acb8c2',   
+            },            
+          },
+          x: {      
+            grid: {
+              display: true,
+              tickWidth:0,   
+            },
+            border: {
+              display: false,
+              dash: [2,4],
+            }, 
+            ticks: {
+               color: '#ACB8C2',  
+            },           
+          }
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+          datalabels: {
+            color: '#000',
+            font:{
+              size:20,
+            }
+          }
+        }
+      }
+    });
+
+  </script>
+  <script>
+    $("#datepicker").datepicker({
+      dateFormat: 'yy.mm.dd',
+      onSelect: function (dateText, inst) {
+        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
+      }
+    });
+  </script>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(1, 1);
+   }, 500);    
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>

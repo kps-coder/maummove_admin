@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js --> 
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">사용자 정보</h2>
+      </header>
+      <section class="container-body">
+        <aside class="sub-lnb">
+          <div class="module-box user-info">
+            <h3 class="title2">한무브</h3>
+            <div class="user-img">
+              <img src="../assets/images/photo_2.jpg" alt="한무브 이미지">
+            </div>
+            <div class="user-name">닉네임 : 멍멍박사</div>
+            <div class="user-join">가입일 : 2025.02.25</div>
+          </div>
+          <div class="module-box lnb-menu">
+            <ul>
+              <li><a href="#n">주차별 그래프<small>(자료모드)</small></a></li>
+              <li><a href="#n">3종검사 </a></li>
+              <li class="on"><a href="#n">행동계획 상세 </a></li>
+              <li><a href="#n">데일리 우울  </a></li>
+              <li><a href="#n">가치설정&목표행동 </a></li>
+              <li><a href="#n">음성녹음 Data </a></li>
+              <li><a href="#n">종합리포트 </a></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="contents">
+          <div class="flex-row">
+            <!-- mode-1 : 일반모드 / mode-2 : 치료모드 -->
+            <div class="module-box mode-1">
+              <h3 class="title2">일반모드</h3>
+              <div class="mode-img"></div>
+              <p><strong>12주차 진행중</strong></p>
+              <p>2025.01.20~2025.05.20</p>
+            </div>
+
+            <div class="module-box complete-rate green">
+              <h3 class="title2">행동완료 비율</h3>
+              <div class="complete-graph">
+                <canvas id="completeGraph"></canvas>
+                <div class="complete-graph__value">80%</div>
+              </div>
+              <p>행동완료 <strong>40</strong> / 행동계획 <strong>60</strong></p>
+            </div>
+
+            <div class="module-box detail-info">
+              <h3 class="title2">상세정보</h3>
+              <div class="info-list">
+                <dl>
+                  <dt>이메일</dt>
+                  <dd>asdfgqwertyuy@gmail.com</dd>
+                </dl>
+                <dl>
+                  <dt>소속기관</dt>
+                  <dd>없음</dd>
+                </dl>
+                <dl>
+                  <dt>로컬관리자</dt>
+                  <dd>없음</dd>
+                </dl>
+                <dl>
+                  <dt>마지막 로그인</dt>
+                  <dd>2025.5.30</dd>
+                </dl>
+              </div>
+              <div class="btn-right">
+                <button type="button" class="btn-basic"><i class="ic14-reset"></i>비밀번호 초기화</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="module-box">
+              <div class="btn-left">
+                <div class="input-date">
+                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <input type="text" class="input-date__input" id="datepicker">
+                </div>                
+              </div>
+              <div class="table-col table-scroll">
+                <table>
+                  <colgroup>
+                    <col style="width: 100px;">
+                    <col style="width: 100px;">
+                    <col style="width: 100px;">
+                    <col style="width: 120px;">
+                    <col style="width: 60px;">
+                    <col style="width: 80px;">
+                    <col style="width: 80px;">
+                    <col style="width: 80px;">
+                    <col style="width: 180px;">
+                    <col style="width: 80px;">
+                    <col style="width: 60px;">
+                    <col style="width: 60px;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>행동계획 생성일</th>
+                      <th>마지막 업데이트일</th>
+                      <th>가치</th>
+                      <th>행동 카테고리</th>
+                      <th>행동난이도</th>
+                      <th>행동수행날자</th>
+                      <th>행동시작시간</th>
+                      <th>행동수행시간</th>
+                      <th>행동세부내용</th>
+                      <th>수행완료 여부</th>
+                      <th>기쁨점수</th>
+                      <th>슬픔점수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2025.01.20</td>
+                      <td>2025.01.30</td>
+                      <td>일/직업/교육</td>
+                      <td>학업수행하기</td>
+                      <td>3</td>
+                      <td>2025.01.21</td>
+                      <td>10:00</td>
+                      <td>1:30</td>
+                      <td>행동세부내용 블라블랍르블</td>
+                      <td>완료</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>2025.01.20</td>
+                      <td>2025.01.30</td>
+                      <td>일/직업/교육</td>
+                      <td>학업수행하기</td>
+                      <td>3</td>
+                      <td>2025.01.21</td>
+                      <td>10:00</td>
+                      <td>1:30</td>
+                      <td>행동세부내용 블라블랍르블</td>
+                      <td>완료</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>2025.01.20</td>
+                      <td>2025.01.30</td>
+                      <td>일/직업/교육</td>
+                      <td>학업수행하기</td>
+                      <td>3</td>
+                      <td>2025.01.21</td>
+                      <td>10:00</td>
+                      <td>1:30</td>
+                      <td>행동세부내용 블라블랍르블</td>
+                      <td>완료</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>2025.01.20</td>
+                      <td>2025.01.30</td>
+                      <td>일/직업/교육</td>
+                      <td>학업수행하기</td>
+                      <td>3</td>
+                      <td>2025.01.21</td>
+                      <td>10:00</td>
+                      <td>1:30</td>
+                      <td>행동세부내용 블라블랍르블</td>
+                      <td>완료</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>2025.01.20</td>
+                      <td>2025.01.30</td>
+                      <td>일/직업/교육</td>
+                      <td>학업수행하기</td>
+                      <td>3</td>
+                      <td>2025.01.21</td>
+                      <td>10:00</td>
+                      <td>1:30</td>
+                      <td>행동세부내용 블라블랍르블</td>
+                      <td>완료</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>2025.01.20</td>
+                      <td>2025.01.30</td>
+                      <td>일/직업/교육</td>
+                      <td>학업수행하기</td>
+                      <td>3</td>
+                      <td>2025.01.21</td>
+                      <td>10:00</td>
+                      <td>1:30</td>
+                      <td>행동세부내용 블라블랍르블</td>
+                      <td>완료</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- //contents-->
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+
+  <script>
+    $("#datepicker").datepicker({
+      dateFormat: 'yy.mm.dd',
+      onSelect: function (dateText, inst) {
+        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
+      }
+    });
+
+    //도넛
+    const completeGraph = document.getElementById('completeGraph');
+    const cgData = {
+      labels: [
+        'Red',
+        'Blue',
+        'Yellow'
+      ],
+      datasets: [{
+        label: '',
+        data: [20, 80],
+        backgroundColor: [
+          'rgba(233, 237, 240, 0)',
+          '#62E184',
+        ],
+        borderRadius: 30,
+        borderWidth: 0,
+        hoverOffset: 0
+      }]
+    };
+
+    new Chart(completeGraph, {
+      type: 'doughnut',
+      data: cgData,
+      options: {
+        rotation: -150,
+        circumference: 300,
+        cutout:40,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+    
+  </script>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(0, 0);
+   }, 500);    
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>
