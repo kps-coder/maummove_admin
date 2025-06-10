@@ -63,16 +63,21 @@
           <div class="flex-row">
             <div class="module-box">
               <!-- 조건 검색 -->
-              <div class="table-search">
-                <div class="search-box">
-                  <input type="text" title="개인회원 검색" placeholder="개인회원 검색">
-                  <button type="button" class="search-box__btn">검색</button>
-                </div>
-                <div class="input-date">
-                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
-                  <input type="text" class="input-date__input" id="datepicker">
+              <div class="btn-flex">
+                <div class="table-search">
+                  <div class="search-box">
+                    <input type="text" title="개인회원 검색" placeholder="개인회원 검색">
+                    <button type="button" class="search-box__btn">검색</button>
+                  </div>
+                  <div class="input-date">
+                    <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                    <span class="selected-date"></span>
+                    <input type="text" class="input-date__input" id="datepicker">
+                  </div>  
                 </div>  
-              </div>  
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>       
+              </div>
+              
               <div class="column-box">
                 <!-- 왼쪽 테이블 -->
                 <div class="table-col">
@@ -481,7 +486,7 @@
     $("#datepicker").datepicker({
       dateFormat: 'yy.mm.dd',
       onSelect: function (dateText, inst) {
-        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
+        $(inst.input[0]).prev().html(dateText);
       }
     });
   </script>

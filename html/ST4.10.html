@@ -40,7 +40,8 @@
               <div class="btn-center">
                 <div class="input-date">
                   <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
-                  <input type="text" class="input-date__input" id="datepicker">
+                  <span class="selected-date"></span>
+                  <input type="text" class="input-date__input" id="datepicker1">
                 </div>  
               </div>
             </div>
@@ -164,6 +165,7 @@
               <div class="btn-center">
                 <div class="input-date">
                   <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <span class="selected-date"></span>
                   <input type="text" class="input-date__input" id="datepicker2">
                 </div>  
               </div>
@@ -290,18 +292,15 @@
   </div>
 
   <script>
-    $("#datepicker").datepicker({
-      dateFormat: 'yy.mm.dd',
-      onSelect: function (dateText, inst) {
-        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
-      }
-    });
-
-    $("#datepicker2").datepicker({
-      dateFormat: 'yy.mm.dd',
-      onSelect: function (dateText, inst) {
-        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
-      }
+   // date
+    let inpuDate = $('.input-date');
+    inpuDate.each(function(i){
+      $("#datepicker" + (i+1)).datepicker({
+        dateFormat: 'yy.mm.dd',
+        onSelect: function (dateText, inst) {
+          $(inst.input[0]).prev().html(dateText);
+        }
+      });
     });
   </script>
 

@@ -92,18 +92,20 @@
                   <dd>2025.5.30</dd>
                 </dl>
               </div>
-              <div class="btn-right">
+              <!-- <div class="btn-right">
                 <button type="button" class="btn-basic"><i class="ic14-reset"></i> 비밀번호 초기화</button>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="flex-row">
             <div class="module-box">
-              <div class="btn-left">
+              <div class="btn-flex">
                 <div class="input-date">
                   <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <span class="selected-date"></span>
                   <input type="text" class="input-date__input" id="datepicker">
-                </div>                
+                </div> 
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>       
               </div>
               <div class="table-col table-scroll">
                 <table>
@@ -242,7 +244,7 @@
     $("#datepicker").datepicker({
       dateFormat: 'yy.mm.dd',
       onSelect: function (dateText, inst) {
-        $(inst.input[0]).prev().html('<i class="ic14-date"></i>날자설정: ' + dateText);
+        $(inst.input[0]).prev().html(dateText);
       }
     });
 

@@ -12,9 +12,10 @@
 .ic24-file {background-image: url(../images/ic24_file.svg);}
 .ic24-down {background-image: url(../images/ic24_down.svg);}
 
-[class^="ic14-"] {display: inline-block; width: 14px; height: 14px; vertical-align: middle; background-size: contain; background-position: center;}
+[class^="ic14-"] {display: inline-block; width: 14px; height: 14px; vertical-align: middle; background-size: contain; background-position: center; background-repeat: no-repeat;}
 .ic14-date {background-image: url(../images/ic14_date.svg);}
 .ic14-reset {background-image: url(../images/ic14_date.svg);}
+.ic14-download {background-image: url(../images/ic14_download.svg);}
 
 [class^="ic-worth-"] {display: inline-block; width: 100px; height: 100px; vertical-align: middle; border-radius: 100%;}
 .ic-worth-1 {background: #FFF0F0 url(../images/ic50_worth_1.svg) no-repeat center;} /* 가족관계 */
@@ -32,9 +33,9 @@
 
 /* ==== badge ==== */
 .badge {display: inline-block; width: 53px; height: 19px; line-height: 19px; border-radius: 8px; color:#fff; font-size:10px; text-align: center;}
-.badge.hold {background-color: #FF5A5A;}
-.badge.okay {background-color: #67B17C;}
-.badge.stop {background-color: #C5C9C6;}
+.badge.hold {background-color: #FF5A5A;} /* 승인대기 */
+.badge.okay {background-color: #67B17C;} /* 승인완료 */
+.badge.stop {background-color: #C5C9C6;} /* 정지 */
 
 /* ==== layout ==== */
 body {background-color: #F2F4F8;}
@@ -110,23 +111,28 @@ body {background-color: #F2F4F8;}
 .input-date {position: relative; display: inline-block;}
 .input-date .input-date__input {position: absolute; top:0; left:0; width: 100%; height: 25px; border: 0; cursor: pointer; color: transparent; background-color: transparent;}
 .input-date .input-date__input:focus {outline: none;}
+.selected-date {display: inline-block; margin-left:16px; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
 .btn-center {text-align: center;}
 .btn-more-area {margin-top:24px; text-align: center;}
-.btn-left + .table-col {margin-top:16px}
+.btn-flex {display: flex; justify-content: space-between; align-items: center;}
+
+.btn-flex + .table-col,
+.btn-left + .table-col,
+.btn-right + .table-col {margin-top:16px}
 
 /* 기본 버튼 */
 .btn-date,
-.btn-basic {display: inline-block; height:25px; padding:0 16px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
+.btn-basic {display: inline-block; height:25px; line-height: 25px; padding:0 16px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
 .btn-date i,
 .btn-basic i {margin-right:9px; vertical-align: -3px;}
 
 .btn-pri {display: inline-block; height: 40px; line-height: 40px; padding:0 16px; border-radius: 20px; color:#fff; background-color: #2B5437;}
 
 /* 더보기 */
-.btn-more {display: inline-block; width: 127px; height: 24px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
+.btn-more {display: inline-block; width: 127px; height: 24px; line-height: 24px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
 .btn-more::before {content: ''; display: inline-block; width: 9px; height: 12px; margin-right:4px; vertical-align: -2px; background: url(../images/ic_more.svg) no-repeat center / contain;}
 
 /* 링크 라인 버튼튼 */
@@ -152,7 +158,7 @@ body {background-color: #F2F4F8;}
 .table-scroll::-webkit-scrollbar-thumb {height:5px; border:4px solid #E9ECF1; border-radius: 8px; background-color: #FFFFFF;}
 
 /* 조건검색 */
-.table-search {display: flex; align-items: center; justify-content: center; gap:16px; margin-bottom:24px;}
+.table-search {display: flex; align-items: center; justify-content: flex-start; gap:16px; margin-bottom:24px;}
 .search-box {position: relative; overflow: hidden; width: 360px; height: 30px; padding:0 73px 0 40px; border:1px solid #D2D7DB; border-radius: 30px; background: url(../images/ic24_search.svg) no-repeat 16px center / 16px 16px;}
 .search-box input {width: 100%; height: 30px; border:0;}
 .search-box input:focus {outline: 0;}
@@ -249,6 +255,7 @@ body {background-color: #F2F4F8;}
 
 /* 가치선택 통계 */
 .select-worth .module-box {min-height: 246px;}
+.select-worth .selected-date {display: block; height:20px; margin:16px 0 0; color:#000; font-size: 12px;}
 
 .select-worth-data {display:flex; justify-content: space-between; margin-top:32px;}
 .data-list dl {display: flex;}
