@@ -14,7 +14,13 @@
   <!-- js -->
   <script src="../assets/js/lib/jquery.js"></script>
   <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>
   <script src="../assets/js/ui_common.js"></script>
+
+  <!-- 가이드 스타일 : 개발페이지 사용 금지 -->
+  <style>
+    .guide-wrap > div ~ div {margin-top:16px;}
+  </style>
 </head>
 <body>
   <div class="wrap"> 
@@ -60,11 +66,364 @@
           <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
           <input type="text" id="globalSearch" placeholder="개인회원 검색">
         </div>
-        <h2 class="title1">타이틀타이틀타이틀타이틀</h2>
+        <h2 class="title1">타이틀 .title1</h2>
       </header>
       <section class="container-body">
-        <div class="module-box">
-          module-box
+        <aside class="sub-lnb">
+          <div class="module-box user-info">
+            <h3 class="title2">이미소</h3>
+            <div class="user-img">
+              <img src="../assets/images/photo.png" alt="사용자 이미지">
+            </div>
+            <div class="user-name">닉네임 : 괴수냥</div>
+            <div class="user-join">가입일 : 2025.02.25</div>
+          </div>
+          <div class="module-box lnb-menu">
+            <ul>
+              <li class="on"><a href="#n">sub Menu</a></li>
+              <li><a href="#n">sub Menu </a></li>
+              <li><a href="#n">sub Menu </a></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="contents">
+          <div class="flex-row">
+            <!-- mode-1 : 일반모드 / mode-2 : 치료모드 -->
+            <div class="module-box mode-2">
+              <h3 class="title2">치료모드</h3>
+              <div class="mode-img"></div>
+              <p><strong>12주차 진행중</strong></p>
+              <p>2025.01.20~2025.05.20</p>
+            </div>
+            <!-- mode-1 : 일반모드 / mode-2 : 치료모드 -->
+            <div class="module-box mode-1">
+              <h3 class="title2">일반모드</h3>
+              <div class="mode-img"></div>
+              <p><strong>12주차 진행중</strong></p>
+              <p>2025.01.20~2025.05.20</p>
+            </div>
+
+            
+            <div class="module-box">
+              <h2 class="title2">타이틀2 .title2</h2>
+              <h3 class="title3">타이틀3 .title3</h3>
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <div class="module-box complete-rate">
+              <h3 class="title2">행동완료 비율</h3>
+              <div class="complete-graph">
+                <canvas id="completeGraph1"></canvas>
+                <div class="complete-graph__value">80%</div>
+              </div>
+              <p>행동완료 <strong>40</strong> / 행동계획 <strong>60</strong></p>
+            </div>
+            <div class="module-box complete-rate green">
+              <h3 class="title2">행동완료 비율</h3>
+              <div class="complete-graph">
+                <canvas id="completeGraph2"></canvas>
+                <div class="complete-graph__value">80%</div>
+              </div>
+              <p>행동완료 <strong>40</strong> / 행동계획 <strong>60</strong></p>
+            </div>
+            
+            <div class="module-box">
+              <h2 class="title2">badge</h2>
+              <span class="badge hold">승인대기</span>
+              <span class="badge okay">승인완료</span>
+              <span class="badge stop">정지</span>
+            </div>
+          </div>
+          
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">button style</h2>
+              <div class="guide-wrap"><!-- .guide-wrap 가이드를 위한 class 입니다. -->
+                <div class="btn-left">
+                  <button type="button" class="btn-basic"><i class="ic14-reset"></i>비밀번호 초기화</button>
+                </div>
+                <div class="btn-center">
+                  <button type="button" class="btn-basic"><i class="ic14-date"></i>날자설정</button>
+                </div>
+                <div class="btn-right">
+                  <button type="button" class="btn-basic"><i class="ic14-download"></i>전체다운로드</button>
+                </div>
+                <div class="btn-flex">
+                  <div class="input-date">
+                    <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                    <span class="selected-date"></span>
+                    <input type="text" class="input-date__input" id="datepicker">
+                  </div> 
+                  <button type="button" class="btn-basic"><i class="ic14-download"></i>전체다운로드</button>
+                </div>
+                <div class="btn-more-area">
+                  <button type="button" class="btn-more">더보기</button>
+                </div>
+                <div class="btn-center">
+                  <a href="MAIN.html" class="btn-pri">error 페이지 사용</a>
+                </div>
+              </div>                
+            </div>
+          </div>
+
+          <!-- 아이콘 -->
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">icon 24</h2>
+              <div class="guide-wrap">
+                <div>
+                  <i class="ic24-id"></i>
+                  <i class="ic24-pw"></i>
+                  <i class="ic24-search"></i>
+                  <i class="ic24-smile"></i>
+                  <i class="ic24-pie"></i>
+                  <i class="ic24-file"></i>
+                  <i class="ic24-down"></i>
+                </div>
+                <div style="background-color: #ccc;">
+                  <i class="ic24-msg"></i>
+                  <i class="ic24-out"></i>
+                </div>
+              </div>
+            </div>
+            <div class="module-box">
+              <h2 class="title2">icon 14</h2>
+              <div class="guide-wrap">
+                <div>
+                  <p>* 버튼 안에 사용된 아이콘</p>
+                </div>
+                <div>
+                  <i class="ic14-date"></i>
+                  <i class="ic14-download"></i>
+                </div>                
+              </div>
+            </div>
+            <div class="module-box">
+              <h2 class="title2">icon main</h2>
+              <div class="guide-wrap">
+                <i class="ic55-file-1"></i>
+                <i class="ic55-file-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">icon 가치</h2>
+              <div class="guide-wrap">
+                <i class="ic-worth-1"></i>
+                <i class="ic-worth-2"></i>
+                <i class="ic-worth-3"></i>
+                <i class="ic-worth-4"></i>
+                <i class="ic-worth-5"></i>
+                <i class="ic-worth-6"></i>
+                <i class="ic-worth-7"></i>
+                <i class="ic-worth-8"></i>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 테이블 -->
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">table style</h2>
+              <div class="btn-flex">
+                <div class="input-date">
+                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <span class="selected-date"></span>
+                  <input type="text" class="input-date__input" id="datepicker">
+                </div> 
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>       
+              </div>
+              <div class="table-col">
+                <table>
+                  <colgroup>
+                    <col style="width: 15%;">
+                    <col style="width: 20%;">
+                    <col style="width: 25%;">
+                    <col style="width: 25%;">
+                    <col style="width: 15%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>만족도 검사진행일</th>
+                      <th>검사를 진행하는 가치</th>
+                      <th>현재 가치만족도 점수 / 현재 가치평가 일자</th>
+                      <th>기존 가치만족도 점수 / 기존 가치평가 일자</th>
+                      <th>마지막 검사일자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>자기개발 / 성장</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>친구/지인관계</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>일/직업/교육</td>
+                      <td>6점 / 2025.05.20</td>
+                      <td>4점 / 2025.04.22</td>
+                      <td>2025.06.01</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 스크롤 테이블 -->
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">scroll table style</h2>
+              <div class="btn-right">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+              <div class="table-col table-scroll">
+                <table>
+                  <colgroup>
+                    <col style="width: 120px;">
+                    <col style="width: 120px;">
+                    <col style="width: 80px;">
+                    <col style="width: 80px;">
+                    <col style="width: 60px;">
+                    <col style="width: 200px;">
+                    <col style="width: 60px;">
+                    <col style="width: 200px;">
+                    <col style="width: 60px;">
+                    <col style="width: 60px;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>검사실행일</th>
+                      <th>검사종류</th>
+                      <th>아이디</th>
+                      <th>모드</th>
+                      <th>질문id</th>
+                      <th>질문내용</th>
+                      <th>대답id</th>
+                      <th>대답내용</th>
+                      <th>원점수</th>
+                      <th>다운</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2025.04.25</td>
+                      <td>우울</td>
+                      <td>이미소</td>
+                      <td>치료모드</td>
+                      <td>3</td>
+                      <td>먹고싶지않고 식욕이 없다.</td>
+                      <td>3</td>
+                      <td>종종 있었다.</td>
+                      <td>3</td>
+                      <td><a href="#down" class="btn_link">파일</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.04.25</td>
+                      <td>우울</td>
+                      <td>이미소</td>
+                      <td>치료모드</td>
+                      <td>3</td>
+                      <td>먹고싶지않고 식욕이 없다.</td>
+                      <td>3</td>
+                      <td>종종 있었다.</td>
+                      <td>3</td>
+                      <td><a href="#down" class="btn_link">파일</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <!-- 
+              worth-box-1 : 가족관계
+              worth-box-2 : 부부/연인관계
+              worth-box-3 : 친구/지인관계 
+              worth-box-4 : 자기개발/성장
+              worth-box-5 : 영성/종교 
+              worth-box-6 : 여가/취미
+              worth-box-7 : 일/직업/교육
+              worth-box-8 : 건강
+             -->
+            <div class="module-box worth-box-1">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>가족관계</p>
+            </div>
+
+            <div class="module-box worth-box-2">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>부부/연인관계</p>
+            </div>
+
+            <div class="module-box worth-box-3">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>친구/지인관계</p>
+            </div>
+
+            <div class="module-box worth-box-4">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>자기개발/성장</p>
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <div class="module-box worth-box-5">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>영성/종교</p>
+            </div>
+            
+            <div class="module-box worth-box-6">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>여가/취미</p>
+            </div>
+
+            <div class="module-box worth-box-7">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>일/직업/교육</p>
+            </div>
+
+            <div class="module-box worth-box-8">
+              <h3 class="title2">가치선택</h3>
+              <div class="worth-icon"></div>
+              <p><strong>n주차</strong></p>
+              <p>건강</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -74,5 +433,89 @@
       </footer>
     </div>
   </div>
+
+  <script>
+    //행동완룔 비율
+    const completeGraph1 = document.getElementById('completeGraph1');
+    const cgData = {
+      datasets: [{
+        label: '',
+        data: [20, 80],
+        backgroundColor: [
+          'rgba(233, 237, 240, 0)',
+          '#A694F5',
+        ],
+        borderRadius: 30,
+        borderWidth: 0,
+        hoverOffset: 0
+      }]
+    };
+
+    new Chart(completeGraph1, {
+      type: 'doughnut',
+      data: cgData,
+      options: {
+        rotation: -150,
+        circumference: 300,
+        cutout:40,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+
+    //도넛
+    const completeGraph2 = document.getElementById('completeGraph2');
+    const cgData2 = {
+      labels: [
+        'Red',
+        'Blue',
+        'Yellow'
+      ],
+      datasets: [{
+        label: '',
+        data: [20, 80],
+        backgroundColor: [
+          'rgba(233, 237, 240, 0)',
+          '#62E184',
+        ],
+        borderRadius: 30,
+        borderWidth: 0,
+        hoverOffset: 0
+      }]
+    };
+
+    new Chart(completeGraph2, {
+      type: 'doughnut',
+      data: cgData2,
+      options: {
+        rotation: -150,
+        circumference: 300,
+        cutout:40,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: false,
+          },
+        }
+      }
+    });
+  </script>
+
+  <script>
+    $("#datepicker").datepicker({
+      dateFormat: 'yy.mm.dd',
+      onSelect: function (dateText, inst) {
+        $(inst.input[0]).prev().html(dateText);
+      }
+    });
+  </script>
 </body>
 </html>

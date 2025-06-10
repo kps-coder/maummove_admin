@@ -111,7 +111,7 @@ body {background-color: #F2F4F8;}
 .input-date {position: relative; display: inline-block;}
 .input-date .input-date__input {position: absolute; top:0; left:0; width: 100%; height: 25px; border: 0; cursor: pointer; color: transparent; background-color: transparent;}
 .input-date .input-date__input:focus {outline: none;}
-.selected-date {display: inline-block; margin-left:16px; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
+.selected-date {display: inline-block; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
@@ -265,6 +265,8 @@ body {background-color: #F2F4F8;}
 
 .selected-worth > i {margin-bottom:4px;}
 .selected-worth > p {font-size: 10px; text-align: center; font-weight: 500;}
+
+.select-worth-data + .btn-center {margin-top: 16px;}
 
 
 /* ==== main ==== */
