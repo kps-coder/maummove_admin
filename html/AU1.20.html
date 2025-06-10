@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">회원정보</h2>
+      </header>
+      <section class="container-body">
+        <aside class="sub-lnb">
+          <div class="module-box user-info user-super">
+            <h3 class="title2">이미소</h3>
+            <div class="user-img">
+              <img src="../assets/images/photo.png" alt="사용자 이미지">
+            </div>
+            <div class="user-level">수퍼관리자</div>
+            <div class="user-name">닉네임 : 괴수냥</div>
+            <div class="user-join">가입일 : 2025.02.25</div>
+          </div>
+          <div class="module-box lnb-menu">
+            <ul>
+              <li><a href="#n">회원목록</a></li>
+              <li class="on"><a href="#n">로컬관리자 </a></li>
+              <li><a href="#n">쪽지</a></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="contents">
+          <div class="flex-row"> 
+            <div class="module-box detail-info">
+              <h3 class="title2">상세정보</h3>
+              <div class="info-list">
+                <dl>
+                  <dt>이메일</dt>
+                  <dd>asdfgqwertyuy@gmail.com</dd>
+                </dl>
+                <dl>
+                  <dt>소속기관</dt>
+                  <dd>서울대학교 사범대학 부설 초등학교</dd>
+                </dl>
+                <dl>
+                  <dt>로컬관리자</dt>
+                  <dd>한마음</dd>
+                </dl>
+                <dl>
+                  <dt>마지막 로그인</dt>
+                  <dd>2025.5.30</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="module-box mypage-local">
+              <h3 class="title2">승인대기 로컬관리자</h3>
+              <div class="local-list">
+                <table>
+                  <colgroup>
+                    <col style="width: 65px;">
+                    <col style="width: 20%;">
+                    <col style="width: auto;">
+                    <col style="width: 18%;">
+                  </colgroup>
+                  <tbody>
+                    <tr>  
+                      <td>
+                        <span class="badge hold">승인대기</span>
+                      </td>
+                      <td>김수한무</td>
+                      <td>금천 초등학교</td>
+                      <td>2025.05.03</td>
+                    </tr>  
+                    <tr>  
+                      <td>
+                        <span class="badge hold">승인대기</span>
+                      </td>
+                      <td>김수한무</td>
+                      <td>서울대학교 사범대학 부설초등학교</td>
+                      <td>2025.05.03</td>
+                    </tr>  
+                    <tr>  
+                      <td>
+                        <span class="badge hold">승인대기</span>
+                      </td>
+                      <td>한기쁨슬픔</td>
+                      <td>금천 초등학교</td>
+                      <td>2025.05.03</td>
+                    </tr>  
+                    <tr>  
+                      <td>
+                        <span class="badge hold">승인대기</span>
+                      </td>
+                      <td>김수한무</td>
+                      <td>서울대학교 사범대학 부설초등학교</td>
+                      <td>2025.05.03</td>
+                    </tr>  
+                    <tr>  
+                      <td>
+                        <span class="badge hold">승인대기</span>
+                      </td>
+                      <td>한기쁨슬픔</td>
+                      <td>금천 초등학교</td>
+                      <td>2025.05.03</td>
+                    </tr>               
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-more-area">
+                <a href="AD1.30.html" class="btn-more">더보기</a><!-- 회원목록으로 링크 -->
+              </div>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="module-box">
+              <div class="btn-right">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+              <div class="table-col">
+                <table>
+                  <colgroup>
+                    <col style="width: 15%;">
+                    <col style="width: 15%;">
+                    <col style="width: auto;">
+                    <col style="width: auto;">
+                    <col style="width: 15%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>승인</th>
+                      <th>이름</th>
+                      <th>소속</th>
+                      <th>이메일</th>
+                      <th>가입일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <select id="select01">
+                          <option>승인대기</option>
+                          <option>승인</option>
+                          <option>정지</option>
+                        </select>
+                      </td>
+                      <td>김마음</td>
+                      <td class="ellipsis">없음</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <select id="select01">
+                          <option>승인대기</option>
+                          <option>승인</option>
+                          <option>정지</option>
+                        </select>
+                      </td>
+                      <td>김마음</td>
+                      <td class="ellipsis">진달래 마음힐링상 진달래 마음힐링상진달래 마음힐링상</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(2, 0);
+   }, 500);    
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>

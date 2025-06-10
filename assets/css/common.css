@@ -113,10 +113,12 @@ body {background-color: #F2F4F8;}
 .input-date .input-date__input:focus {outline: none;}
 .selected-date {display: inline-block; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
 
+select {}
+
 /* ==== button ==== */
 .btn-right {text-align: right;}
 .btn-center {text-align: center;}
-.btn-more-area {margin-top:24px; text-align: center;}
+.btn-more-area {margin-top:16px; text-align: center;}
 .btn-flex {display: flex; justify-content: space-between; align-items: center;}
 
 .btn-flex + .table-col,
@@ -179,8 +181,10 @@ body {background-color: #F2F4F8;}
 .user-img {overflow: hidden; width: 100px; height: 100px; margin:0 auto 16px; border-radius: 100%;}
 .user-name,
 .user-join {text-align: center; line-height: 1.4; font-weight: 500;}
+.user-info.user-super .title2::after {content: ''; display: inline-block; width: 20px; height: 20px; margin-left:4px; background: url(../images/ic_super.svg) no-repeat center / contain;}
+.user-level {text-align: center; color:#FF5A5A; font-weight: 700; line-height: 1.4;}
 
-.lnb-menu {height: 354px;}
+.lnb-menu {max-height: 354px; min-height: auto; padding-bottom:43px}
 .lnb-menu > ul > li > a {display: block; height: 40px; padding:0 16px; border-radius: 8px; line-height: 40px; font-size: 16px; font-weight: 500;}
 .lnb-menu > ul > li > a small {font-size: 11px;}
 .lnb-menu > ul > li.on > a {color:#fff; font-weight: 700; background-color: #458758;}
@@ -303,9 +307,15 @@ body {background-color: #F2F4F8;}
 .worth-select-rate .tab-basic > ul {margin-bottom:0;}
 .worth-select-rate .select-worth-data {margin-top:24px;}
 
-/* 로컬관리자 목록 */
+.main-container .local-list >  table td {height:33px; padding:4px 6px;}
+
+
+/* ==== 로컬관리자 목록 ==== */
+.mypage-local {min-width: 525px;}
 .local-list >  table {width: 100%;}
-.local-list >  table td {height:33px; padding:4px 6px;}
+.local-list >  table td {height:27px; padding:4px 6px;}
+.mypage-local .btn-more-area {margin-top:8px;}
+
 
 /* ==== 회원검색 ==== */
 .member-search-wrap {width: 880px; margin:0 auto; padding-top:128px;}
