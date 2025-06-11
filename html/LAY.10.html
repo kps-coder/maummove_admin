@@ -133,6 +133,10 @@
               <span class="badge hold">승인대기</span>
               <span class="badge okay">승인완료</span>
               <span class="badge stop">정지</span>
+              <br><br>
+              <span class="badge-manager-super">수퍼관리자</span> 
+              &nbsp;
+              <span class="badge-manager-local">로컬관리자</span>
             </div>
           </div>
           
@@ -166,7 +170,53 @@
                   <button type="button" class="btn-more">더보기</button>
                 </div>
                 <div class="btn-center">
-                  <a href="MAIN.html" class="btn-pri">error 페이지 사용</a>
+                  <a href="#n" class="btn-cta-pri">btn-cta-pri</a>
+                  <a href="#n" class="btn-cta-sec">btn-cta-sec</a>
+                </div>
+              </div>                
+            </div>
+          </div>
+
+          <!-- form -->
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">form style</h2>
+              <div class="guide-wrap"><!-- .guide-wrap 가이드를 위한 class 입니다. -->
+                <div>
+                  <input type="text" class="inp-text" placeholder=".inp-text">
+                </div>
+                <div>
+                  <textarea class="inp-textarea" placeholder=".inp-textarea"></textarea>
+                </div>
+                <div>
+                  <input type="checkbox" class="inp-chk" id="inpCheckBox"> <label for="inpCheckBox">checkbox</label>
+                </div>
+                <div>
+                  <input type="radio" name="radio01" class="inp-rdo" id="inpRadio01-1"> <label for="inpRadio01-1">radio</label> &nbsp;
+                  <input type="radio" name="radio01" class="inp-rdo" id="inpRadio01-2"> <label for="inpRadio01-2">radio</label>
+                </div>
+                <div>
+                  <select class="inp-select">
+                    <option>선택</option>
+                    <option>선택</option>
+                  </select>
+                </div>
+              </div>                
+            </div>
+          </div>
+
+          <!-- modal -->
+          <div class="flex-row">
+            <div class="module-box">
+              <h2 class="title2">modal style</h2>
+              <p>* modal을 실행 할 버튼에 추가 : data-modal-btn="modalID"</p>
+              <div class="guide-wrap"><!-- .guide-wrap 가이드를 위한 class 입니다. -->
+                <br>
+                <div class="btn-left">
+                  <button type="button" class="btn-basic" data-modal-btn="modalPwReset"><i class="ic14-reset"></i>비밀번호 초기화</button>
+                </div>
+                <div class="btn-left">
+                  <a href="#modalMessge" class="btn-pri" data-modal-btn="modalMeassge"><i class="ic14-messge"></i>쪽지쓰기</a>
                 </div>
               </div>                
             </div>
@@ -436,6 +486,40 @@
       <footer class="container-foot">
         <address>관리 책임자 : 김무브 &nbsp; | &nbsp; 이메일 : maummove@gmail.com &nbsp; | &nbsp; 2025 maummove all right reserved. &nbsp; 본 사이트를 무단복제,사용시 법적인 제재를 받습니다.</address>
       </footer>
+    </div>
+  </div>
+
+  <!-- modal : 소속선택 -->
+  <div class="modal-wrap" id="modalPwReset">
+    <div class="modal-container">
+      <div class="modal-head">
+        <h1 class="modal-title1">비밀번호 초기화</h1>
+        <p class="desc-text">비밀번호를 재설정 해주세요.</p>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="inpPwReset" class="inp-text">
+        <p class="noti-text">※ 기본 소속은 일반 입니다.</p>
+      </div>
+      <div class="modal-foot">
+        <a href="#btn" class="btn-cta-pri" onclick="modalClose(this);">확인</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal : 쪽지쓰기 -->
+  <div class="modal-wrap" id="modalMeassge">
+    <div class="modal-container">
+      <div class="modal-head">
+        <h1 class="modal-title1">쪽지쓰기</h1>
+      </div>
+      <div class="modal-body">
+        <textarea id="messgeWrite" rows="8" placeholder="내용을 써주세요" class="inp-textarea"></textarea>
+        <p class="noti-text">※ 100자 이상은 입력이 제한됩니다.</p>
+      </div>
+      <div class="modal-foot">
+        <a href="#btn" class="btn-cta-sec" onclick="modalClose(this);">취소</a>
+        <a href="#btn" class="btn-cta-pri">확인</a>
+      </div>
     </div>
   </div>
 

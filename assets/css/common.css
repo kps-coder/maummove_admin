@@ -18,6 +18,7 @@
 .ic14-download {background-image: url(../images/ic14_download.svg);}
 .ic14-class {width: 17px; height:13px; background-image: url(../images/ic14_class.svg);}
 .ic14-manager {width: 18px; background-image: url(../images/ic14_manager.svg);}
+.ic14-messge {background-image: url(../images/ic14_messge.svg);}
 
 [class^="ic-worth-"] {display: inline-block; width: 100px; height: 100px; vertical-align: middle; border-radius: 100%;}
 .ic-worth-1 {background: #FFF0F0 url(../images/ic50_worth_1.svg) no-repeat center;} /* 가족관계 */
@@ -42,6 +43,7 @@
 [class^="badge-manager-"] {display: inline-block; height:23px; line-height: 23px; padding-left:28px; font-weight: 700;}
 .badge-manager-super {color:#F26060; background: url(../images/ic_super_2.svg) no-repeat 0 0 / 22px 19px;}
 .badge-manager-local {color:#000; background: url(../images/ic_local.svg) no-repeat 0 0 / 22px 19px;}
+
 
 /* ==== layout ==== */
 body {background-color: #F2F4F8;}
@@ -92,6 +94,9 @@ body {background-color: #F2F4F8;}
 .title2 {margin-bottom:16px; font-size: 24px; font-weight: 700; text-align: center;}
 .title3 {margin-bottom:16px; font-size: 16px; font-weight: 700; text-align: center;}
 
+.desc-text {margin-top:12px; font-size: 12px; line-height: 1.2; text-align: center;}
+.noti-text {margin:8px 0; color:#656F77; font-size: 10px; line-height: 1.2;}
+
 /* ==== login ==== */
 .wrap-login {display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;}
 .login {display: flex; justify-content: space-between; width: 730px; margin-bottom:30px;}
@@ -119,7 +124,13 @@ body {background-color: #F2F4F8;}
 .input-date .input-date__input:focus {outline: none;}
 .selected-date {display: inline-block; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
 
-select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; font-family: 'Pretendard', 'Nanum Gothic', '나눔고딕', sans-serif;}
+select.inp-select {display: inline-block; height:25px; min-width: 90px; border:1px solid #D2D7DB; color:#000000;}
+
+input.inp-chk {width:16px; height:16px; border:1px solid #656F77; vertical-align: middle; /* -webkit-appearance: none; appearance: none; */}
+input.inp-rdo {width:16px; height:16px; border:1px solid #656F77; vertical-align: middle;}
+textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; border-radius: 8px; resize: none; line-height: 1.4; box-sizing: border-box;}
+
+.inp-text {width: 100%; height:40px; padding:0 8px; border:1px solid #CBD9E5; border-radius: 8px;}
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
@@ -149,6 +160,11 @@ select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; f
 /* 링크 라인 버튼튼 */
 .btn_link {text-decoration: underline; font-weight: 700;}
 
+/* cta */
+[class^="btn-cta-"] {display: inline-block; height:40px; line-height: 40px; padding:0 40px; border-radius: 40px; text-align: center; color:#fff;}
+.btn-cta-pri {background-color: #2B5437;}
+.btn-cta-sec {background-color: #C0C6CC;}
+
 /* 탭 */
 .tab-basic > ul {display: flex; gap: 8px; justify-content: center; margin-bottom:14px;}
 .tab-basic > ul > li > a {display: block; min-width: 66px; height: 24px; padding:0 16px; border-radius: 12px; text-align: center; line-height: 24px; background-color: #E8EEF3;}
@@ -161,12 +177,13 @@ select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; f
 .table-col table thead th {height: 33px; padding:6px 0; font-size: 11px; color: #656F77; background-color: #F2F4F8;}
 .table-col table thead th:first-child {border-radius: 8px 0 0 8px;}
 .table-col table thead th:last-child {border-radius: 0 8px 8px 0;}
-.table-col table tbody td {height:33px; padding:4px 5px; text-align: center; line-height: 1.4;}
+.table-col table tbody td {height:33px; padding:4px 5px; text-align: center; line-height: 1.4; word-break: keep-all;}
 .ellipsis {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 
 .table-scroll {overflow-x: scroll; overflow-y: hidden; width: 100%; padding-bottom:24px;}
 .table-scroll::-webkit-scrollbar {border-radius: 8px; background-color: #E9ECF1;}
 .table-scroll::-webkit-scrollbar-thumb {height:5px; border:4px solid #E9ECF1; border-radius: 8px; background-color: #FFFFFF;}
+
 
 /* 조건검색 */
 .table-search {display: flex; align-items: center; justify-content: flex-start; gap:16px; margin-bottom:24px;}
@@ -177,6 +194,17 @@ select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; f
 
 .column-box {position: relative; display: flex; gap:64px;}
 .column-box::before {content: ''; display: block; position: absolute; top:0; bottom:0; left:50%; width: 1px; background-color: #C5C9C6;}
+
+/* ==== modal ==== */
+.modal-wrap {display: none; position: fixed; top:0; left:0; bottom:0; right:0; background-color: rgba(0, 0, 0, 0.44);}
+.modal-container {position: absolute; left:50%; top:50%; transform: translate(-50%, -50%); width: 344px; padding:32px; border-radius: 8px; background-color: #fff;}
+.modal-head {margin-bottom:16px;}
+.modal-title1 {font-size: 24px; font-weight: 700; text-align: center;} 
+.modal-foot {display: flex; gap: 10px; margin-top:32px;}
+.modal-foot > * {width: 100%;}
+
+.modal-wrap.modal--open {display: block;}
+
 
 /* ==== cont ==== */
 .contents {display: flex; flex-direction: column; gap: 16px; width: 100%;}
@@ -191,7 +219,10 @@ select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; f
 .user-name,
 .user-join {text-align: center; line-height: 1.4; font-weight: 500;}
 .user-info.user-super .title2::after {content: ''; display: inline-block; width: 20px; height: 20px; margin-left:4px; background: url(../images/ic_super.svg) no-repeat center / contain;}
-.user-level {text-align: center; color:#FF5A5A; font-weight: 700; line-height: 1.4;}
+.user-info.user-super .user-level {text-align: center; color:#FF5A5A; font-weight: 700; line-height: 1.4;}
+
+.user-info.user-local .title2::after {content: ''; display: inline-block; width: 20px; height: 20px; margin-left:4px; background: url(../images/ic_local.svg) no-repeat center / 22px 19px;}
+.user-info.user-local .user-level {text-align: center; color:#113680; font-weight: 700; line-height: 1.4;}
 
 .lnb-menu {max-height: 354px; min-height: auto; padding-bottom:43px}
 .lnb-menu > ul > li > a {display: block; height: 40px; padding:0 16px; border-radius: 8px; line-height: 40px; font-size: 16px; font-weight: 500;}
@@ -356,4 +387,4 @@ select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; f
 .error-img {width: 407px; height: 235px; margin:0 auto 13px; background: url(../images/error.png) no-repeat center / contain;}
 .error-title {margin-bottom:16px; font-size: 48px; color: #3BAD59; font-weight: 800; text-align: center;}
 .error-messge {margin-bottom:37px; font-size: 24px; color:#868C92;}
-.error-wrap .btn-pri {width: 278px; height:40px; line-height: 40px;}
+.error-wrap .btn-cta-pri {width: 278px; height:40px; line-height: 40px;}

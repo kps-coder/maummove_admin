@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(){
   tabSelect();
+  modalOpen();
 });
 
 function tabSelect() {
@@ -18,3 +19,25 @@ function tabSelect() {
   });
 }
 
+function modalOpen() {
+  let modalBtn = $('[data-modal-btn]');
+  
+  modalBtn.click(function(){
+    let modalWrapId = $(this).attr('data-modal-btn');
+    let modalWrap = $('#' + modalWrapId );
+    console.log(modalWrapId);
+    modalWrap.addClass('modal--open');
+
+    $('body').attr('style', 'overflow:hidden');
+  });
+}
+
+function modalClose(obj) {
+  let closeBtn = $(obj);
+  let modalWrap = closeBtn.parents('.modal-wrap');
+  let modalId = modalWrap.attr('id');
+
+  modalWrap.removeClass('modal--open');
+  $('[data-modal-btn="'+ modalId +'"]').focus();
+  $('body').removeAttr('style');
+}
