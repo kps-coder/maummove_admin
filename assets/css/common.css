@@ -16,6 +16,8 @@
 .ic14-date {background-image: url(../images/ic14_date.svg);}
 .ic14-reset {background-image: url(../images/ic14_date.svg);}
 .ic14-download {background-image: url(../images/ic14_download.svg);}
+.ic14-class {width: 17px; height:13px; background-image: url(../images/ic14_class.svg);}
+.ic14-manager {width: 18px; background-image: url(../images/ic14_manager.svg);}
 
 [class^="ic-worth-"] {display: inline-block; width: 100px; height: 100px; vertical-align: middle; border-radius: 100%;}
 .ic-worth-1 {background: #FFF0F0 url(../images/ic50_worth_1.svg) no-repeat center;} /* 가족관계 */
@@ -36,6 +38,10 @@
 .badge.hold {background-color: #FF5A5A;} /* 승인대기 */
 .badge.okay {background-color: #67B17C;} /* 승인완료 */
 .badge.stop {background-color: #C5C9C6;} /* 정지 */
+
+[class^="badge-manager-"] {display: inline-block; height:23px; line-height: 23px; padding-left:28px; font-weight: 700;}
+.badge-manager-super {color:#F26060; background: url(../images/ic_super_2.svg) no-repeat 0 0 / 22px 19px;}
+.badge-manager-local {color:#000; background: url(../images/ic_local.svg) no-repeat 0 0 / 22px 19px;}
 
 /* ==== layout ==== */
 body {background-color: #F2F4F8;}
@@ -113,7 +119,7 @@ body {background-color: #F2F4F8;}
 .input-date .input-date__input:focus {outline: none;}
 .selected-date {display: inline-block; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
 
-select {}
+select {height:24px; min-width: 90px; border:1px solid #D2D7DB; color:#000000; font-family: 'Pretendard', 'Nanum Gothic', '나눔고딕', sans-serif;}
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
@@ -127,11 +133,14 @@ select {}
 
 /* 기본 버튼 */
 .btn-date,
-.btn-basic {display: inline-block; height:25px; line-height: 25px; padding:0 16px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
+.btn-basic {display: inline-block; height:29px; line-height: 29px; padding:0 16px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
 .btn-date i,
 .btn-basic i {margin-right:9px; vertical-align: -3px;}
 
-.btn-pri {display: inline-block; height: 40px; line-height: 40px; padding:0 16px; border-radius: 20px; color:#fff; background-color: #2B5437;}
+.btn-basic.sm {height:25px; line-height: 25px;}
+
+.btn-pri {display: inline-block; height: 29px; line-height: 29px; padding:0 16px; border-radius: 20px; color:#fff; font-weight: 700; background-color: #2B5437;}
+.btn-pri i {margin-right:9px; vertical-align: -1px;}
 
 /* 더보기 */
 .btn-more {display: inline-block; width: 127px; height: 24px; line-height: 24px; border-radius: 17px; border: 1px solid #D2D7DB; font-size: 12px; color:#000; vertical-align: middle; background-color: #F2F4F8;}
@@ -347,4 +356,4 @@ select {}
 .error-img {width: 407px; height: 235px; margin:0 auto 13px; background: url(../images/error.png) no-repeat center / contain;}
 .error-title {margin-bottom:16px; font-size: 48px; color: #3BAD59; font-weight: 800; text-align: center;}
 .error-messge {margin-bottom:37px; font-size: 24px; color:#868C92;}
-.error-wrap .btn-pri {width: 278px;}
+.error-wrap .btn-pri {width: 278px; height:40px; line-height: 40px;}

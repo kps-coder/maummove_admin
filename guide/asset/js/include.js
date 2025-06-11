@@ -28,8 +28,9 @@ window.addEventListener('load', function() {
             </li>
             <li><a href="#n"><i class="ic24-file"></i> 마이페이지 <i class="ic24-down"></i></a>
               <ul>
+                <li><a href="#n">회원목록</a></li>
+                <li><a href="#n">관리자리스트</a></li>
                 <li><a href="#n">쪽지</a></li>
-                <li><a href="#n">회원관리</a></li>
               </ul>
             </li>
           </ul>
@@ -44,8 +45,9 @@ window.addEventListener('load', function() {
 });
 
 function gnbSelect(n1, n2) {
-  let menuList = document.querySelectorAll('.menu-list > ul > li');
-  let subMenuList = document.querySelectorAll('.menu-list > ul > li > ul > li');
-  menuList[n1].classList.add('on');
-  subMenuList[n2].classList.add('on');
+  let menuList = $('.menu-list > ul > li');
+  let subMenuList = menuList.eq(n1).find('li');
+
+  menuList.eq(n1).addClass('on');
+  subMenuList.eq(n2).addClass('on');
 }

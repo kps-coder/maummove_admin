@@ -44,7 +44,7 @@
           <div class="module-box lnb-menu">
             <ul>
               <li><a href="#n">회원목록</a></li>
-              <li class="on"><a href="#n">로컬관리자 </a></li>
+              <li class="on"><a href="#n">관리자 리스트 </a></li>
               <li><a href="#n">쪽지</a></li>
             </ul>
           </div>
@@ -73,52 +73,36 @@
               </div>
             </div>
             <div class="module-box mypage-local">
-              <h3 class="title2">승인대기 로컬관리자</h3>
+              <h3 class="title2">신규 로컬관리자</h3>
               <div class="local-list">
                 <table>
                   <colgroup>
-                    <col style="width: 65px;">
                     <col style="width: 20%;">
                     <col style="width: auto;">
                     <col style="width: 18%;">
                   </colgroup>
                   <tbody>
-                    <tr>  
-                      <td>
-                        <span class="badge hold">승인대기</span>
-                      </td>
+                    <tr>
                       <td>김수한무</td>
                       <td>금천 초등학교</td>
                       <td>2025.05.03</td>
                     </tr>  
                     <tr>  
-                      <td>
-                        <span class="badge hold">승인대기</span>
-                      </td>
                       <td>김수한무</td>
                       <td>서울대학교 사범대학 부설초등학교</td>
                       <td>2025.05.03</td>
                     </tr>  
                     <tr>  
-                      <td>
-                        <span class="badge hold">승인대기</span>
-                      </td>
                       <td>한기쁨슬픔</td>
                       <td>금천 초등학교</td>
                       <td>2025.05.03</td>
                     </tr>  
                     <tr>  
-                      <td>
-                        <span class="badge hold">승인대기</span>
-                      </td>
                       <td>김수한무</td>
                       <td>서울대학교 사범대학 부설초등학교</td>
                       <td>2025.05.03</td>
                     </tr>  
                     <tr>  
-                      <td>
-                        <span class="badge hold">승인대기</span>
-                      </td>
                       <td>한기쁨슬픔</td>
                       <td>금천 초등학교</td>
                       <td>2025.05.03</td>
@@ -127,14 +111,14 @@
                 </table>
               </div>
               <div class="btn-more-area">
-                <a href="AD1.30.html" class="btn-more">더보기</a><!-- 회원목록으로 링크 -->
+                <a href="AU1.10.html" class="btn-more">더보기</a><!-- 회원목록으로 링크 -->
               </div>
             </div>
           </div>
           <div class="flex-row">
             <div class="module-box">
               <div class="btn-right">
-                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+                 <button type="button" class="btn-pri"><i class="ic14-manager"></i>로컬관리자 등록</button>
               </div>
               <div class="table-col">
                 <table>
@@ -147,21 +131,17 @@
                   </colgroup>
                   <thead>
                     <tr>
-                      <th>승인</th>
+                      <th>관리자</th>
                       <th>이름</th>
                       <th>소속</th>
                       <th>이메일</th>
                       <th>가입일</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody><!-- 수퍼관리자 상위 고정 -->
                     <tr>
                       <td>
-                        <select id="select01">
-                          <option>승인대기</option>
-                          <option>승인</option>
-                          <option>정지</option>
-                        </select>
+                        <span class="badge-manager-super">수퍼관리자</span>
                       </td>
                       <td>김마음</td>
                       <td class="ellipsis">없음</td>
@@ -170,14 +150,84 @@
                     </tr>
                     <tr>
                       <td>
-                        <select id="select01">
-                          <option>승인대기</option>
-                          <option>승인</option>
-                          <option>정지</option>
-                        </select>
+                        <span class="badge-manager-super">수퍼관리자</span>
                       </td>
                       <td>김마음</td>
                       <td class="ellipsis">진달래 마음힐링상 진달래 마음힐링상진달래 마음힐링상</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-super">수퍼관리자</span>
+                      </td>
+                      <td>김마음</td>
+                      <td class="ellipsis">없음</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-super">수퍼관리자</span>
+                      </td>
+                      <td>김마음</td>
+                      <td class="ellipsis">진달래 마음힐링상 진달래 마음힐링상진달래 마음힐링상</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                  </tbody>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-local">로컬관리자</span>
+                      </td>
+                      <td>한기쁨</td>
+                      <td class="ellipsis">세화여고</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-local">로컬관리자</span>
+                      </td>
+                      <td>한기쁨</td>
+                      <td class="ellipsis">세화여고</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-local">로컬관리자</span>
+                      </td>
+                      <td>한기쁨</td>
+                      <td class="ellipsis">세화여고</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-local">로컬관리자</span>
+                      </td>
+                      <td>한기쁨</td>
+                      <td class="ellipsis">세화여고</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-local">로컬관리자</span>
+                      </td>
+                      <td>한기쁨</td>
+                      <td class="ellipsis">세화여고</td>
+                      <td>asedfghrffgdfdsf@gmail.com</td>
+                      <td>2025.05.03</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="badge-manager-local">로컬관리자</span>
+                      </td>
+                      <td>한기쁨</td>
+                      <td class="ellipsis">세화여고</td>
                       <td>asedfghrffgdfdsf@gmail.com</td>
                       <td>2025.05.03</td>
                     </tr>
@@ -202,7 +252,7 @@
   <script src="../guide/asset/js/include.js"></script>
   <script>
    setTimeout(function(){
-    gnbSelect(2, 0);
+    gnbSelect(2, 1);
    }, 500);    
   </script>
   <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
