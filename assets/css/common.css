@@ -66,7 +66,7 @@ body {background-color: #F2F4F8;}
 .menu-list {height: 523px; margin-top:-66px; padding:24px 16px; border-radius: 16px; background-color: #fff;}
 .menu-list > ul > li > a {position: relative; display: block; height: 56px; padding:0 8px; border-bottom: 1px solid #F2F4F8; line-height: 56px; font-size: 18px; font-weight: 700;}
 .menu-list > ul > li > a > i {vertical-align: -6px;}
-.menu-list > ul > li > a > i.ic24-down {position: absolute; right:8px; top:16px}
+.menu-list > ul > li > a > i.ic24-down {display:none; position: absolute; right:8px; top:16px}
 .menu-list > ul > li > ul {background-color: #F2F4F8;}
 .menu-list > ul > li > ul > li > a {display: block; height: 44px; padding: 0 32px; line-height: 44px; font-size: 16px; font-weight: 500;}
 
@@ -124,13 +124,22 @@ body {background-color: #F2F4F8;}
 .input-date .input-date__input:focus {outline: none;}
 .selected-date {display: inline-block; color:#FF5A5A; font-size: 16px; font-weight: 700; vertical-align: middle;}
 
-select.inp-select {display: inline-block; height:25px; min-width: 90px; border:1px solid #D2D7DB; color:#000000;}
+select.inp-select {display: inline-block; height:25px; min-width: 100px; padding:0 16px; border:1px solid #D2D7DB; color:#000000; -webkit-appearance: none; appearance: none; background: url(../images/select_combo.svg) no-repeat right 9px center / 12px 12px, url(../images/select_bg.svg) no-repeat right -1px top -2px / 32px 30px;}
 
 input.inp-chk {width:16px; height:16px; border:1px solid #656F77; vertical-align: middle; /* -webkit-appearance: none; appearance: none; */}
 input.inp-rdo {width:16px; height:16px; border:1px solid #656F77; vertical-align: middle;}
 textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; border-radius: 8px; resize: none; line-height: 1.4; box-sizing: border-box;}
 
-.inp-text {width: 100%; height:40px; padding:0 8px; border:1px solid #CBD9E5; border-radius: 8px;}
+.inp-text {width: 100%; height:48px; padding:0 16px; border:0; background-color: #F2F4F8;}
+
+/* 쓰기 목록 */
+.form-write {width: 100%; margin-bottom:44px;}
+.form-write .btn-cta-pri {width: 278px;}
+.form__row {display:flex; gap:36px; width: 100%;}
+.form__row ~ .form__row,
+.form__row ~ .btn-center {margin-top:24px;}
+.form__col {flex:1;}
+.inp-title {display: block; margin-bottom:8px;}
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
@@ -141,6 +150,7 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 .btn-flex + .table-col,
 .btn-left + .table-col,
 .btn-right + .table-col {margin-top:16px}
+.btn-flex + div {margin-top:24px;}
 
 /* 기본 버튼 */
 .btn-date,
@@ -186,7 +196,7 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 
 
 /* 조건검색 */
-.table-search {display: flex; align-items: center; justify-content: flex-start; gap:16px; margin-bottom:24px;}
+.table-search {display: flex; align-items: center; justify-content: flex-start; gap:16px;}
 .search-box {position: relative; overflow: hidden; width: 360px; height: 30px; padding:0 73px 0 40px; border:1px solid #D2D7DB; border-radius: 30px; background: url(../images/ic24_search.svg) no-repeat 16px center / 16px 16px;}
 .search-box input {width: 100%; height: 30px; border:0;}
 .search-box input:focus {outline: 0;}
@@ -194,6 +204,14 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 
 .column-box {position: relative; display: flex; gap:64px;}
 .column-box::before {content: ''; display: block; position: absolute; top:0; bottom:0; left:50%; width: 1px; background-color: #C5C9C6;}
+
+.table-search .inp-select {height:29px;}
+
+.simple-search-box {border:1px solid #D2D7DB;}
+.simple-search-box > input {height:29px; padding:0 16px; border:0;}
+.simple-search-box > input:focus {outline: 0;}
+.simple-search-box > button {display: inline-block; width: 30px;height:29px; vertical-align: middle;}
+.simple-search-box > button  i {width: 16px; height: 16px;}
 
 /* ==== modal ==== */
 .modal-wrap {display: none; position: fixed; top:0; left:0; bottom:0; right:0; background-color: rgba(0, 0, 0, 0.44);}
@@ -243,7 +261,7 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 /* 행동완료 비율 */
 .complete-rate {width: 220px; padding:32px 12px 24px;}
 .complete-rate p {font-weight: 500; text-align: center; font-size: 16px;}
-.complete-graph {position: relative; width: 110px; height: 110px; margin:0 auto 16px; background: url(../images/bg_doughnut.svg) no-repeat center / 100px 100px;}
+.complete-gra ph {position: relative; width: 110px; height: 110px; margin:0 auto 16px; background: url(../images/bg_doughnut.svg) no-repeat center / 100px 100px;}
 .complete-graph__value {position: absolute; left: 50%; top:55%; transform: translate(-50%, -50%); letter-spacing: -1px; font-size: 26px; font-weight: 700; color: #A694F5;}
 .complete-rate.green .complete-graph__value {color: #62E184;}
 

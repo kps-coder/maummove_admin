@@ -44,7 +44,8 @@
           <div class="module-box lnb-menu">
             <ul>
               <li class="on"><a href="#n">회원목록</a></li>
-              <li><a href="#n">관리자 리스트 </a></li>
+              <li><a href="#n">관리자 목록 </a></li>
+              <li><a href="#n">로컬관리자 등록 </a></li><!-- 20250621 추가 -->
               <li><a href="#n">쪽지</a></li>
             </ul>
           </div>
@@ -117,9 +118,23 @@
           </div>
           <div class="flex-row">
             <div class="module-box">
-              <div class="btn-right">
+              <!-- 20250621 정렬 및 검색 추가 -->
+              <div class="btn-flex">
+                <div class="table-search">
+                  <select class="inp-select">
+                    <option>이름</option>
+                    <option>소속</option>
+                    <option>이메일</option>
+                  </select>
+                  <div class="simple-search-box">
+                    <input type="text" id="inpSimpleSearch" placeholder="검색어를 입력해주세요">
+                    <button type="button"><i class="ic24-search"></i><span class="blind">검색</span></button>
+                  </div>
+                </div>
                 <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
               </div>
+              <!-- //20250621 정렬 및 검색 추가 -->
+
               <div class="table-col">
                 <table>
                   <colgroup>
