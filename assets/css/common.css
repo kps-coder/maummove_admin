@@ -141,6 +141,7 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 .form__col {flex:1;}
 .inp-title {display: block; margin-bottom:8px;}
 .form-write .inp-text {width: 100%; height:48px; padding:0 16px; border:0; border-radius: 0; background-color: #F2F4F8;}
+.form-write .inp-select {width: 100%; height:48px; border:0; background: none; background:#F2F4F8 url(../images/select_combo.svg) no-repeat right 9px center / 12px 12px}
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
