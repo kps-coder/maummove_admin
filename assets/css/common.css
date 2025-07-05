@@ -171,6 +171,7 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 
 /* 링크 라인 버튼튼 */
 .btn_link {text-decoration: underline; font-weight: 700;}
+.btn_link.green {color:#458758;}
 
 /* cta */
 [class^="btn-cta-"] {display: inline-block; height:40px; line-height: 40px; padding:0 40px; border-radius: 40px; text-align: center; color:#fff;}
