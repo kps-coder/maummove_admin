@@ -16,6 +16,7 @@
   <script src="../assets/js/lib/jquery-ui.min.js"></script>
   <script src="../assets/js/lib/chart.js"></script>  
   <script src="../assets/js/ui_common.js"></script>
+
 </head>
 <body>
   <div class="wrap"> 
@@ -38,10 +39,13 @@
               <h3 class="title2">치료모드</h3>
               <div class="mode-img"></div>
               <div class="btn-center">
-                <div class="input-date">
+                <div class="input-date date--period"><!-- 20250705 수정 -->
                   <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
-                  <span class="selected-date">2025.04.01 ~ 2025.05.30</span>
                   <input type="text" class="input-date__input" id="datepicker1">
+                  <input type="text" class="input-date__input" id="datepicker11">
+                  <div class="selected-date">
+                    <span class="dateStart">2025.04.01</span> ~ <span class="dateEnd">2025.05.30</span>
+                  </div>                  
                 </div>  
               </div>
             </div>
@@ -169,10 +173,13 @@
               <h3 class="title2">일반모드</h3>
               <div class="mode-img"></div>
               <div class="btn-center">
-                <div class="input-date">
+                <div class="input-date date--period"><!-- 20250705 수정 -->
                   <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
-                  <span class="selected-date">2025.04.01 ~ 2025.05.30</span>
                   <input type="text" class="input-date__input" id="datepicker2">
+                  <input type="text" class="input-date__input" id="datepicker21">
+                  <div class="selected-date">
+                    <span class="dateStart">2025.04.01</span> ~ <span class="dateEnd">2025.05.30</span>
+                  </div>   
                 </div>  
               </div>
             </div>
@@ -304,15 +311,34 @@
   </div>
 
   <script>
-   // date
-    let inpuDate = $('.input-date');
-    inpuDate.each(function(i){
+   // date 20250705 수정
+    let inpuDate = $('.btn-date');
+    inpuDate.each(function(i, obj){
       $("#datepicker" + (i+1)).datepicker({
         dateFormat: 'yy.mm.dd',
+        //showOn:"button",
+        //buttonImageOnly: true,
         onSelect: function (dateText, inst) {
-          $(inst.input[0]).prev().html(dateText);
+          //console.log("onSelect", dateText);
+          $(inst.input[0]).parent().find('.dateStart').html(dateText);   
+        },
+        onClose:  function (dateText, inst) {
+          //console.log('onClose', dateText);
+          alert('마지막일을 선택해주세요');
+          $(inst.input[0]).next().datepicker('show');                
         }
       });
+      $("#datepicker" + (i+1) + '1').datepicker({
+        dateFormat: 'yy.mm.dd',
+        onSelect: function (dateText, inst) {
+          $(inst.input[0]).parent().find('.dateEnd').html(dateText);   
+        }
+      });
+    });   
+
+    inpuDate.click(function(e){
+      alert('시작일을 선택해주세요');
+      $(e.target).next().datepicker('show');    
     });
   </script>
 
