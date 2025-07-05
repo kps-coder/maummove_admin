@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/ui_common.js"></script>
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">사용자 정보</h2>
+      </header>
+      <section class="container-body">
+        <aside class="sub-lnb">
+          <div class="module-box user-info">
+            <h3 class="title2">이미소</h3>
+            <div class="user-img">
+              <img src="../assets/images/photo.png" alt="사용자 이미지">
+            </div>
+            <div class="user-name">닉네임 : 괴수냥</div>
+            <div class="user-join">가입일 : 2025.02.25</div>
+          </div>
+          <div class="module-box lnb-menu">
+            <ul>
+              <li><a href="#n">주차별 그래프<small>(자료모드)</small></a></li>
+              <li><a href="#n">3종검사 </a></li>
+              <li><a href="#n">행동계획 상세 </a></li>
+              <li><a href="#n">데일리 우울  </a></li>
+              <li><a href="#n">가치설정&목표행동 </a></li>
+              <li><a href="#n">음성녹음 Data </a></li>
+              <li class="on"><a href="#modalReport" data-modal-btn="modalReport">종합리포트 </a></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="contents">
+          <div class="flex-row">
+            <div class="module-box">
+              <div class="btn-right">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+              <div class="table-col">
+                <table>
+                  <colgroup>
+                    <col style="width: 15%;"> 
+                    <col style="width: 15%;">
+                    <col style="width: 13%;">
+                    <col style="width: 13%;">
+                    <col style="width: 13%;">
+                    <col style="width: 16%;">
+                    <col style="width: 15%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>모드 시작일</th>
+                      <th>모드 종료일</th>
+                      <th>모드</th>
+                      <th>주차</th>
+                      <th>시도횟수</th>
+                      <th>상태</th>
+                      <th>파일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Completed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Completed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Completed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Completed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Completed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>Completed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                    <tr>
+                      <td>2025.06.01</td>
+                      <td>2025.06.07</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>failed</td>
+                      <td><a href="#down" class="btn_link green">Down</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="btn-more-area">
+                <button type="button" class="btn-more">더보기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+
+  <!-- modal : 종합리포트 다운로드 -->
+  <div class="modal-wrap" id="modalReport">
+    <div class="modal-container">
+      <div class="modal-head">
+        <h1 class="modal-title1">종합리포트 다운로드</h1>
+      </div>
+      <div class="modal-body">
+        <p class="text-alert">ㅇㅇㅇ님의 종합 리포트를 다운로드 하시겠습니까?</p>
+      </div>
+      <div class="modal-foot">
+        <a href="#btn" class="btn-cta-sec" onclick="modalClose(this);">취소</a>
+        <a href="#btn" class="btn-cta-pri">다운로드</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(0);
+   }, 500);    
+
+   //종합리포트 다운로드 모달 화면 확인용
+   $('#modalReport').addClass('modal--open');
+   $('body').attr('style', 'overflow:hidden');
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>

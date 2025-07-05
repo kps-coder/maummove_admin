@@ -221,8 +221,10 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 .modal-container {position: absolute; left:50%; top:50%; transform: translate(-50%, -50%); width: 344px; padding:32px; border-radius: 8px; background-color: #fff;}
 .modal-head {margin-bottom:16px;}
 .modal-title1 {font-size: 24px; font-weight: 700; text-align: center;} 
-.modal-foot {display: flex; gap: 10px; margin-top:32px;}
+.modal-foot {display: flex; gap: 10px; margin-top:24px;}
 .modal-foot > * {width: 100%;}
+
+.text-alert {font-size: 12px; text-align: center;}
 
 .modal-wrap.modal--open {display: block;}
 
