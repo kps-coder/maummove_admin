@@ -192,15 +192,29 @@
   </div>
 
 
-  <!-- modal : 쪽지쓰기 -->
+  <!-- modal : 쪽지쓰기 --><!-- 20250707 받는사람 검색 추가 -->
   <div class="modal-wrap" id="modalMeassge">
     <div class="modal-container">
       <div class="modal-head">
         <h1 class="modal-title1">쪽지쓰기</h1>
       </div>
       <div class="modal-body">
-        <textarea id="messgeWrite" rows="8" placeholder="내용을 써주세요" class="inp-textarea"></textarea>
-        <p class="noti-text">※ 100자 이상은 입력이 제한됩니다.</p>
+        <div class="messge-cont">
+          <dl class="msg-recip">
+            <dt><label for="msgRecip">받는사람</label></dt>
+            <dd>
+              <div class="msg-search">
+                <input type="text" id="msgRecip" name="msgRecip">
+                <button type="button" class="btn-msg-search"></button>
+              </div>  
+              <!-- 검색 후 
+              <p>로컬관리자20번</p> 
+              -->
+            </dd>    
+          </dl>
+          <textarea id="messgeWrite" rows="8" placeholder="내용을 써주세요" class="inp-textarea"></textarea>
+          <p class="noti-text">※ 100자 이상은 입력이 제한됩니다.</p>
+        </div>       
       </div>
       <div class="modal-foot">
         <a href="#btn" class="btn-cta-sec" onclick="modalClose(this);">취소</a>
