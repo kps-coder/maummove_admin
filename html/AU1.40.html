@@ -118,12 +118,17 @@
           </div>
           <div class="flex-row">
             <div class="module-box">
-              <!-- 쓰기 목록 -->
+              <!-- 쓰기 목록 --><!-- 20250707 항목수정 -->
               <div class="form-write">
                 <div class="form__row">
                   <div class="form__col">
-                    <label for="inpName" class="inp-title">이름 / ID</label>
-                    <input type="text" id="inpName" class="inp-text" placeholder="이름 혹은 닉네임을 입력해주세요">
+                    <label for="inpCheck" class="inp-title">활성여부(Y/N)</label>
+                    <input type="text" id="inpCheck" class="inp-text" placeholder="활성여부를 입력해주세요">
+                  </div>
+                  <div class="form__col with--btn">
+                    <label for="inpId" class="inp-title">ID</label>
+                    <input type="text" id="inpId" class="inp-text" placeholder="아이디을 입력해주세요">
+                    <button type="button" class="btn-inp">중복확인</button>
                   </div>
                   <div class="form__col">
                     <label for="inpClass" class="inp-title">소속</label>
@@ -132,15 +137,40 @@
                 </div>
                 <div class="form__row">
                   <div class="form__col">
+                    <label for="inpPw" class="inp-title">비밀번호</label>
+                    <input type="password" id="inpPw" class="inp-text" placeholder="비밀번호를 입력해주세요">
+                  </div>
+                  <div class="form__col">
+                    <label for="inpPwcheck" class="inp-title">비밀번호 확인</label>
+                    <input type="text" id="inpPwcheck" class="inp-text" placeholder="비밀번호 확인">
+                  </div>
+                  <div class="form__col">
+                    <label for="inpName" class="inp-title">이름</label>
+                    <input type="text" id="inpName" class="inp-text" placeholder="이름을 입력해주세요">
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__col with--btn">
                     <label for="inpEmail" class="inp-title">이메일</label>
                     <input type="text" id="inpEmail" class="inp-text" placeholder="이메일을 입력해주세요">
+                    <button type="button" class="btn-inp">중복확인</button>
+                  </div>
+                  <div class="form__col">
+                    <label for="inpPhone" class="inp-title">연락처</label>
+                    <input type="text" id="inpPhone" class="inp-text" placeholder="연락처를 입력해주세요">
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__col">
+                    <label for="inpPhone" class="inp-title">메모</label>
+                    <input type="text" id="inpPhone" class="inp-text" placeholder="메모를 입력해주세요">
                   </div>
                 </div>
 
                 <div class="btn-center">
                   <a href="#n" class="btn-cta-pri">관리자 등록</a>
                 </div>
-              </div> <!-- // 쓰기 목록 -->           
+              </div> <!-- // 쓰기 목록 --> <!-- //20250707 항목수정 -->          
             </div>
           </div>
         </div>

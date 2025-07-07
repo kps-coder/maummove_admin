@@ -134,15 +134,21 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 .inp-text {width: 100%; height:40px; padding:0 8px; border:1px solid #CBD9E5; border-radius: 8px;}
 
 /* 쓰기 목록 */
+.btn-inp {display: inline-block; width: 114px; height: 48px; border-radius: 24px; border:1px solid #D2D7DB;}
+
 .form-write {width: 100%; margin-bottom:44px;}
 .form-write .btn-cta-pri {width: 278px;}
-.form__row {display:flex; gap:36px; width: 100%;}
+.form__row {display:flex; gap:12px; width: 100%;}
 .form__row ~ .form__row,
 .form__row ~ .btn-center {margin-top:24px;}
 .form__col {flex:1;}
+.form__col.with--btn {position: relative; padding-right:122px;}
+.form__col.with--btn .btn-inp {position: absolute; right:0;}
 .inp-title {display: block; margin-bottom:8px;}
 .form-write .inp-text {width: 100%; height:48px; padding:0 16px; border:0; border-radius: 0; background-color: #F2F4F8;}
 .form-write .inp-select {width: 100%; height:48px; border:0; background: none; background:#F2F4F8 url(../images/select_combo.svg) no-repeat right 9px center / 12px 12px}
+
+
 
 /* ==== button ==== */
 .btn-right {text-align: right;}
