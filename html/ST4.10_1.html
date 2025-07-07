@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>maummove</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=1600">
+
+  <!-- ui -->
+  <link rel="stylesheet" href="../assets/css/lib/jquery-ui.min.css">
+  <link rel="stylesheet" href="../assets/css/default.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  
+  <!-- js -->
+  <script src="../assets/js/lib/jquery.js"></script>
+  <script src="../assets/js/lib/jquery-ui.min.js"></script>
+  <script src="../assets/js/lib/chart.js"></script>  
+  <script src="../assets/js/ui_common.js"></script>
+
+</head>
+<body>
+  <div class="wrap"> 
+    <!-- left :: header -->
+    <div class="header"></div>        
+
+    <!-- right :: container -->
+    <div class="container">
+      <header class="container-head">
+        <div class="global-search">
+          <label for="globalSearch"><i class="ic24-search"></i><span class="blind">개인회원 검색</span></label>
+          <input type="text" id="globalSearch" placeholder="개인회원 검색">
+        </div>
+        <h2 class="title1">가치선택 통계</h2>
+      </header>
+      <section class="container-body">
+        <div class="contents select-worth">
+          <div class="flex-row">
+            <div class="module-box mode-2">
+              <h3 class="title2">치료모드</h3>
+              <div class="mode-img"></div>
+              <div class="btn-center">
+                <div class="input-date date--period"><!-- 20250705 수정 -->
+                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <input type="text" class="input-date__input" id="datepicker1">
+                  <input type="text" class="input-date__input" id="datepicker11">
+                  <div class="selected-date">
+                    <span class="dateStart">2025.04.01</span> ~ <span class="dateEnd">2025.05.30</span>
+                  </div>                  
+                </div>  
+              </div>
+            </div>
+
+            <div class="module-box">
+              <h3 class="title2">가치선택 2주차</h3>
+              <div class="select-worth-data">
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>80%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>70%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>1%</dd>
+                  </dl>
+                </div>
+                <div class="selected-worth">
+                  <i class="ic-worth-7"></i>
+                  <!-- 
+                    ic-worth-1 : 가족관계
+                    ic-worth-2 : 부부/연인관계
+                    ic-worth-3 : 친구/지인관계 
+                    ic-worth-4 : 자기개발/성장
+                    ic-worth-5 : 영성/종교
+                    ic-worth-6 : 여가/취미
+                    ic-worth-7 : 일/직업/교육
+                    ic-worth-8 : 건강
+                  -->
+                  <p>일/직업/교육 90%</p>
+                </div>
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>40%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>60%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>10%</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="btn-center">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+            </div>
+            
+            <div class="module-box">
+              <h3 class="title2">가치선택 6주차</h3>
+              <div class="select-worth-data">
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>80%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>70%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>1%</dd>
+                  </dl>
+                </div>
+                <div class="selected-worth">
+                  <i class="ic-worth-4"></i>
+                  <!-- 
+                    ic-worth-1 : 가족관계
+                    ic-worth-2 : 부부/연인관계
+                    ic-worth-3 : 친구/지인관계 
+                    ic-worth-4 : 자기개발/성장
+                    ic-worth-5 : 영성/종교
+                    ic-worth-6 : 여가/취미
+                    ic-worth-7 : 일/직업/교육
+                    ic-worth-8 : 건강
+                  -->
+                  <p>자기개발/성장  90%</p>
+                </div>
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>40%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>60%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>10%</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="btn-center">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="module-box mode-1">
+              <h3 class="title2">일반모드</h3>
+              <div class="mode-img"></div>
+              <div class="btn-center">
+                <div class="input-date date--period"><!-- 20250705 수정 -->
+                  <button type="button" class="btn-date"><i class="ic14-date"></i>날자설정</button>
+                  <input type="text" class="input-date__input" id="datepicker2">
+                  <input type="text" class="input-date__input" id="datepicker21">
+                  <div class="selected-date">
+                    <span class="dateStart">2025.04.01</span> ~ <span class="dateEnd">2025.05.30</span>
+                  </div>   
+                </div>  
+              </div>
+            </div>
+
+            <div class="module-box">
+              <h3 class="title2">가치선택 2주차</h3>
+              <div class="select-worth-data">
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>80%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>70%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>1%</dd>
+                  </dl>
+                </div>
+                <div class="selected-worth">
+                  <i class="ic-worth-6"></i>
+                  <!-- 
+                    ic-worth-1 : 가족관계
+                    ic-worth-2 : 부부/연인관계
+                    ic-worth-3 : 친구/지인관계 
+                    ic-worth-4 : 자기개발/성장
+                    ic-worth-5 : 영성/종교
+                    ic-worth-6 : 여가/취미
+                    ic-worth-7 : 일/직업/교육
+                    ic-worth-8 : 건강
+                  -->
+                  <p>여가/취미 90%</p>
+                </div>
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>40%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>60%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>10%</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="btn-center">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+            </div>
+            
+            <div class="module-box">
+              <h3 class="title2">가치선택 6주차</h3>
+              <div class="select-worth-data">
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>80%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>70%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>1%</dd>
+                  </dl>
+                </div>
+                <div class="selected-worth">
+                  <i class="ic-worth-8"></i>
+                  <!-- 
+                    ic-worth-1 : 가족관계
+                    ic-worth-2 : 부부/연인관계
+                    ic-worth-3 : 친구/지인관계 
+                    ic-worth-4 : 자기개발/성장
+                    ic-worth-5 : 영성/종교
+                    ic-worth-6 : 여가/취미
+                    ic-worth-7 : 일/직업/교육
+                    ic-worth-8 : 건강
+                  -->
+                  <p>건강  90%</p>
+                </div>
+                <div class="data-list">
+                  <dl>
+                    <dt>가족관계</dt>
+                    <dd>35%</dd>
+                  </dl>
+                  <dl>
+                    <dt>친구/지인관계</dt>
+                    <dd>40%</dd>
+                  </dl>
+                  <dl>
+                    <dt>자기개발/성장</dt>
+                    <dd>60%</dd>
+                  </dl>
+                  <dl>
+                    <dt>영성/종교</dt>
+                    <dd>10%</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="btn-center">
+                <a href="#download" class="btn-basic"><i class="ic14-download"></i>전체다운로드</a>
+              </div>
+            </div>
+          </div><!-- //flex-row -->
+        </div>
+      </section> 
+
+      <!-- footer -->
+      <footer class="container-foot"></footer>
+    </div>
+  </div>
+
+  <script>
+   // date 20250705 수정
+    let inpuDate = $('.btn-date');
+    inpuDate.each(function(i, obj){
+      $("#datepicker" + (i+1)).datepicker({
+        dateFormat: 'yy.mm.dd',
+        maxDate :0,
+        //showOn:"button",
+        //buttonImageOnly: true,
+        onSelect: function (dateText, inst) {
+          //console.log("onSelect", dateText);
+          $(inst.input[0]).parent().find('.dateStart').html(dateText);   
+        },
+        onClose:  function (dateText, inst) {
+          console.log('onClose', dateText);
+          //alert('마지막일을 선택해주세요');
+          $("#datepicker" + (i+1) + '1').datepicker('option', 'minDate', dateText); 
+          setTimeout(function(){
+            $("#datepicker" + (i+1) + '1').datepicker('show');
+          }, 10);
+            
+        }
+      });
+      $("#datepicker" + (i+1) + '1').datepicker({
+        dateFormat: 'yy.mm.dd',
+        maxDate :0,
+        onSelect: function (dateText, inst) {
+          $(inst.input[0]).parent().find('.dateEnd').html(dateText);   
+        }
+      });
+    });   
+
+    inpuDate.click(function(e){
+      //alert('시작일을 선택해주세요');
+      $(e.target).next().datepicker('show');    
+    });
+  </script>
+
+  <!-- 퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+  <script src="../guide/asset/js/include.js"></script>
+  <script>
+   setTimeout(function(){
+    gnbSelect(1, 2);
+   }, 500);    
+  </script>
+  <!-- //퍼블 UI 확인용 : 개발페이지 삽입금지 -->
+</body>
+</html>
