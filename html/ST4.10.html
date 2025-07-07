@@ -316,6 +316,7 @@
     inpuDate.each(function(i, obj){
       $("#datepicker" + (i+1)).datepicker({
         dateFormat: 'yy.mm.dd',
+        maxDate :0,
         //showOn:"button",
         //buttonImageOnly: true,
         onSelect: function (dateText, inst) {
@@ -323,13 +324,21 @@
           $(inst.input[0]).parent().find('.dateStart').html(dateText);   
         },
         onClose:  function (dateText, inst) {
-          //console.log('onClose', dateText);
+          console.log('onClose', dateText);
           //alert('마지막일을 선택해주세요');
-          $(inst.input[0]).next().datepicker('show');                
+
+          $(inst.input[0]).next().datepicker('option', 'minDate', dateText); 
+          $(inst.input[0]).next().datepicker('setDate', dateText); 
+          setTimeout(function(){
+            $(inst.input[0]).next().datepicker('show');
+          }, 10);            
         }
       });
+
       $("#datepicker" + (i+1) + '1').datepicker({
         dateFormat: 'yy.mm.dd',
+        maxDate :0,
+        //numberOfMonths:2,
         onSelect: function (dateText, inst) {
           $(inst.input[0]).parent().find('.dateEnd').html(dateText);   
         }
