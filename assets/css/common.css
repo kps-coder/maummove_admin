@@ -160,6 +160,7 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 .btn-left + .table-col,
 .btn-right + .table-col {margin-top:16px}
 .btn-flex + div {margin-top:24px;}
+.table-col + .btn-flex {margin-top:8px;}
 
 /* 기본 버튼 */
 .btn-date,
@@ -191,6 +192,11 @@ textarea.inp-textarea {width: 100%; padding:16px; border: 1px solid #CBD9E5; bor
 .tab-basic > ul > li.on > a {color:#fff; background-color: #2B5437;}
 .tab-cont > div {display: none;}
 .tab-cont .tab-cont--open {display:block}
+
+.tab-sub {margin-bottom:8px;}
+.tab-sub > ul {display: flex; gap:8px;}
+.tab-sub > ul > li > a {display: flex; align-items: center; justify-content: center; width: 132px; height: 38px; border:1px solid #C0C6CC; border-bottom:0; border-radius: 16px 16px 0 0; color: #C0C6CC; background-color: #F2F4F8;}
+.tab-sub > ul > li.on > a {font-weight: 700; font-size: 14px; background-color: #fff; color:#191D21;}
 
 /* ==== table ==== */
 .table-col table {width: 100%;}
